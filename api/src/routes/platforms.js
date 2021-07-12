@@ -4,24 +4,26 @@ const router = express.Router();
 const {API_KEY} = process.env;
 const fetch = require('node-fetch');
 //const db = require('../db.js');
-const { Genre } = require('../db.js');
+const { Platform } = require('../db.js');
 
 // Agregamos los generos desde una API a la base de datos
 
-fetch(`https://api.rawg.io/api/genres?key=${API_KEY}`)
+fetch(`https://api.rawg.io/api/platforms/lists/parents?key=${API_KEY}`)
 .then(data => data.json())
-.then(genres =>{
-    genres.results.forEach(element => {
-        Genre.create({
-            name: element.name
+.then(platforms =>{
+    platforms.results.forEach(typeOfPlatform => {
+        typeOfPlatform.platforms.forEach(element => {
+            Platform.create({
+                name: element.name
+            })
         })
     });
 })
 .catch((error) => console.error(error))
 
 router.get('/',function(req,res){
-    Genre.findAll()
-    .then(genres => res.send(genres))
+    Platform.findAll()
+    .then(platforms => res.send(platforms))
 })
 
 module.exports = router;

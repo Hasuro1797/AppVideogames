@@ -1,36 +1,31 @@
-require('dotenv').config();
 const express = require('express');
 const router = express.Router();
-const {API_KEY} = process.env;
-const fetch = require('node-fetch');
+const { Videogame } = require('../db.js');
 
 router.get('/',function(req,res){
     const {name} = req.query;
     if(name){
-        fetch(`https://api.rawg.io/api/games?search=${name}&&key=${API_KEY}`)
-        .then((data) => data.json())
-        .then(data => {
-
-            if (data.results.length > 0){
-                let videogames = data.results.slice(0,15);
-                res.send(videogames);
+        Videogame.findAll({
+            where: {
+                name,
+            },
+            limit: 15
+        })
+        .then(videoGames => {
+            if(videoGames.length === 0){
+                res.send({error: `The videogame ${name} dont exist`});
             }else{
-                res.status(401).send({
-                    error : `The videogame dont exist`
-                })
+                res.send(videoGames)
             }
         })
-        .catch(error =>res.status(401));
-
     }else{
-        fetch(`https://api.rawg.io/api/games?key=${API_KEY}`)
-        .then(data => data.json())
-        .then(data =>{
-            let videogames = data.results.slice(0,15);
-            res.send(videogames);
+        Videogame.findAll({
+            limit: 15
         })
-        .catch(error => res.status(401));
-    }
+        .then((videoGames)=>{
+            res.send(videoGames)
+        })
+    }   
 })
 
 module.exports = router;
