@@ -1,13 +1,9 @@
 const { DataTypes } = require('sequelize');
 
-// TODO: PENSAR COMO TENER UN ID SIN COLISIONAR
+
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('videogame', {
-    // id : {
-    //   type: DataTypes.INTEGER,
-    //   primaryKey: true,
-    // },
     name: {
       type: DataTypes.STRING,
       allowNull: false,

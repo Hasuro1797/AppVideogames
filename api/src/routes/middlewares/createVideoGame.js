@@ -4,8 +4,9 @@ const createVideoGame = async(req,res,next) =>{
     // Recibo el body con los datos 
     const { name, description, released, rating, genres, platform, background_image } = req.body;
     try {
-        if(name && description && platform && background_image && genres){
-            if(platform.length > 0){
+        // Deben enviarme los siguientes datos 
+        if(name && description && platform && background_image){
+            if(platform.length > 0 && genres.length > 0){
                 // Creo el el Video juego
                 const videoGameCreated = await Videogame.create({
                     name,

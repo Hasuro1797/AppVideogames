@@ -20,7 +20,8 @@
     "morgan": "^1.10.0",
     "node-fetch": "^2.6.1",
     "pg": "^8.5.1",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "uuidv4": "^6.2.11"
   },
   "devDependencies": {
     "chai": "^4.2.0",

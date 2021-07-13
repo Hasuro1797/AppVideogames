@@ -16,12 +16,16 @@ const addPlatforms = function(){
                     typeOfPlatform.platforms.forEach(element => {
                         // Creamos las plataformas
                         Platform.create({
+                            id:element.id,
                             name: element.name
                         })
                     })
                 });
             })
+            // posr si ocurre algun error en el proceso
             .catch((error) => console.error(error))
+        }else{
+            console.log("Platforms were added.")
         }
     })
     // Si exsite un error en el proceso
