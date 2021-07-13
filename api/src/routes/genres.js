@@ -8,16 +8,22 @@ const { Genre } = require('../db.js');
 
 // Agregamos los generos desde una API a la base de datos
 
-fetch(`https://api.rawg.io/api/genres?key=${API_KEY}`)
-.then(data => data.json())
-.then(genres =>{
-    genres.results.forEach(element => {
-        Genre.create({
-            name: element.name
+Genre.findAndCountAll()
+.then(result =>{
+    if(result.count){
+        fetch(`https://api.rawg.io/api/genres?key=${API_KEY}`)
+        .then(data => data.json())
+        .then(genres =>{
+            genres.results.forEach(element => {
+                Genre.create({
+                    name: element.name
+                })
+            });
         })
-    });
+        .catch((error) => console.error(error))
+    } 
 })
-.catch((error) => console.error(error))
+.catch(error => console.error(error));
 
 router.get('/',function(req,res){
     Genre.findAll()

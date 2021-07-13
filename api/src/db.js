@@ -38,12 +38,12 @@ const { Videogame, Genre, Platform} = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
-// relacion muchos a muchos
+// relacion muchos a muchos entre las plataformas y los juegos
 
 Videogame.belongsToMany(Platform , {through: 'videogame_platform'});
 Platform.belongsToMany(Videogame, {through: 'videogame_platform'});
 
-// relacion muchos a muchos
+// relacion muchos a muchos entre los video juegos y los generos
 
 Videogame.belongsToMany(Genre,{ through : 'videogame_genre'});
 Genre.belongsToMany(Videogame,{ through: 'videogame_genre'});
