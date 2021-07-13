@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {requestById} = require('./middlewares/requesById');
+const {requestById} = require('./middlewares/requestById');
 const { createVideoGame } = require('./middlewares/createVideoGame');
 
 

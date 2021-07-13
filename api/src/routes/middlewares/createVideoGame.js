@@ -2,13 +2,12 @@ const { Videogame } = require('../../db.js');
 
 const createVideoGame = async(req,res,next) =>{
     // Recibo el body con los datos 
-    const { id, name, description, released, rating, genres, platform, background_image } = req.body;
+    const { name, description, released, rating, genres, platform, background_image } = req.body;
     try {
-        if(name && id && description && platform && background_image){
+        if(name && description && platform && background_image && genres){
             if(platform.length > 0){
                 // Creo el el Video juego
                 const videoGameCreated = await Videogame.create({
-                    id,
                     name,
                     released,
                     rating,
