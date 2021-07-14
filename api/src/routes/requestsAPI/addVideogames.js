@@ -31,6 +31,7 @@ const addVideogames = () => {
                             //creo el video juego 
                             Videogame.create({
                                 name: element.name,
+                                status: "no_created",
                                 released: element.released,
                                 rating: element.rating,
                                 background_image: element.background_image,
@@ -45,7 +46,6 @@ const addVideogames = () => {
                                 })
                             }).catch(error => console.error("Error in references:", error))
                         })
-                        ""
                         .catch(error => console.error("Request id failed",error))
                     });
                 })

@@ -10,6 +10,7 @@ const createVideoGame = async(req,res,next) =>{
                 // Creo el el Video juego
                 const videoGameCreated = await Videogame.create({
                     name,
+                    status: "created",
                     released,
                     rating,
                     background_image,

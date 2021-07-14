@@ -1,17 +1,15 @@
-require('dotenv').config();
-const {API_KEY} = process.env;
-const fetch = require('node-fetch');
 const { Op } = require("sequelize");
 const { Videogame, Genre } = require('../../db.js');
 
 
-const requestVideogame = (req,res,next)=> {
-    // Obtengo el nombre de la query
-    const {name} = req.query;
-    // si se envio con una query
-    if(name){
-        let requestDB = Videogame.findAll({
-            attributes: ['name', 'background_image', 'rating'],
+const requestVideogame = async(req,res,next)=> {
+    //numero de videojuegos
+    let numOfGames = await Videogame.count();
+    // buscar por nombre de videojuego
+    if(req.query.hasOwnProperty("name")){
+        let { name } = req.query;
+        Videogame.findAll({
+            attributes: ['id','name', 'background_image', 'rating'],
             include : Genre,
             where: {
                 name:{
@@ -19,51 +17,61 @@ const requestVideogame = (req,res,next)=> {
                 }
             }
         })
-        let requestAPI = fetch(`https://api.rawg.io/api/games?search=${name}&&key=${API_KEY}`)
-        .then((data) => data.json());
-
-        Promise.all([requestDB,requestAPI])
-        .then(data =>{
-            let videoGames = [data[0]];
-            if(data[0].length !== 0 || data[1].results.length !== 0){
-                data[1].results.forEach(element => {
-                    videoGames.push	({
-                        name : element.name,
-                        background_image : element.background_image,
-                        rating: element.rating,
-                        genre: element.genres
-                    })
-                });
-                res.send(videoGames.flat())
-            }else{
-                res.send([{error: `The videogame ${name} dont exist`}]);
+        .then(result => {
+            result.length === 0? res.status(422).send({details: "The video game dont exist"}): res.send({count : numOfGames, results : result})
+        })
+        .catch(error => console.error(error))
+    //filtrar por genero    
+    }else if(req.query.hasOwnProperty("genre")){
+        let { genre } = req.query;
+        Videogame.findAll({
+            attributes: ['id','name', 'background_image', 'rating'],
+            include:{
+                model: Genre,
+                where:{
+                    name:{
+                        [Op.iLike] : `%${genre}%`
+                    }
+                    
+                }
             }
         })
-        .catch(error => {
-            throw Error(error)
-        })
-    }else{
-        // Buscar los juegos de la base de datos
-        let requestDB = Videogame.findAll({
-            attributes: ['name', 'background_image', 'rating'],
-            include : Genre,
-        })
-        let requestAPI = fetch(`https://api.rawg.io/api/games?key=${API_KEY}`)
-        .then(data => data.json())
+        .then(result => res.send({count : numOfGames, results : result}))
+        .catch(error => console.error(error));
 
-        Promise.all([requestDB,requestAPI])
-        .then(results =>{
-            let videoGames = [results[0]];
-            results[1].results.forEach(element => {
-                videoGames.push	({
-                    name : element.name,
-                    background_image : element.background_image,
-                    rating: element.rating,
-                    genre: element.genres
-                })
-            });
-            res.send(videoGames.flat())
+    // filtar en forma asc o desc por nombre y por rating
+    }else if(req.query.hasOwnProperty("order") && req.query.hasOwnProperty("way")){
+        let { order, way} = req.query;
+        Videogame.findAll({
+            attributes: ['id','name', 'background_image', 'rating'],
+            include: Genre,
+            order: [[order,way]]
         })
+        .then(result => res.send({count : numOfGames, results : result}))
+        .catch(error => console.error(error));
+
+    // filtro por videojuego creado y no creado
+    }else if(req.query.hasOwnProperty("status")){
+        let { status } = req.query;
+        Videogame.findAll({
+            attributes: ['id','name', 'background_image', 'rating'],
+            include :Genre,
+            where:{
+                status: status
+            }
+        })
+        .then(result => res.send({count : result.count, results : result}))
+        .catch(error => console.error(error));
+
+    // buscar todos los video juegos de la base de datos
+    }else{
+        Videogame.findAll({
+            attributes: ['id','name', 'background_image', 'rating'],
+            include :Genre,
+        })
+        .then(result => res.send({count : numOfGames, results : result}))
+        .catch(error => console.error(error));
+        
         
     }  
 }
