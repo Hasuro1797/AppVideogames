@@ -1,13 +1,13 @@
 import React from 'react'
-import Footer from '../../components/Footer.jsx'; 
-import NavBar from '../../components/NavBar.jsx';
+// import Footer from '../../Components/Footer.jsx'; 
+// import NavBar from '../../Components/NavBar.jsx';
 
 function AddVideogame() {
     return (
         <div>
-            <NavBar/>
+            {/* <NavBar/> */}
             <h2>hola desde addvideogame</h2>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     )
 }

@@ -1,17 +1,21 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import Logo from '../../images/logo-principal.png'
+import { BackgroundImage, BtnHome, LogoItem } from './Landing'
+//import './asdasd.css';
 
 function Landing() {
     return (
-        <div>
+        <BackgroundImage>
+            <LogoItem>
+                <NavLink to = '/home'>
+                    <img src={Logo} alt="asd" />
+                </NavLink>
+            </LogoItem>
             <NavLink to = '/home'>
-                <h1>Logo</h1>
-            </NavLink>
-            <NavLink to = '/home'>
-                <div>To Home</div>
-            </NavLink>
-            
-        </div>
+                <BtnHome>TRY IT NOW</BtnHome>
+            </NavLink>   
+        </BackgroundImage>
     )
 }
 
