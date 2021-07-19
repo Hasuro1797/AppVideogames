@@ -1,0 +1,34 @@
+/* *Home*/
+#Home{
+    display: flex;
+}
+/* *Table of filter */
+#table-filter{
+    background-color: black;
+    width: 20%;
+}
+/* *main-container */
+#main-container{
+    width: 80%;
+}
+/* *Title of filter */
+#title-filter{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    font-weight: 600;
+    font-size: 20px;
+    padding-left: 20px;
+    background-color: rgb(46, 43, 43);
+    color: white;
+}
+/* *List of video games */
+#list-of-videogames{
+    width: 100%;
+    background-image: url("../../images/home-background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-flow: row wrap;
+}
+

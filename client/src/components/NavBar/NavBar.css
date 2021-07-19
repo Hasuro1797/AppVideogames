@@ -1,0 +1,33 @@
+/* *Navigation */
+#Navigation{
+    background-color : black;
+    height: 75px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 5px 0 10px rgba(255,255,255,0.6);
+}
+/* *Logo NavBar */
+#LogoNavBar{
+    padding: 0 60px;
+    /* background-color: rgb(233, 215, 215); */
+}
+/* *Menu items */
+#MenuItems{
+    display : flex;
+    list-style: none;
+    margin-right: 30px;
+}
+li{
+    margin: 25px 10px;
+    font-size: 20px;
+}
+a{
+    text-decoration: none;
+    color: white;
+
+}
+.active{
+    background-color: #969292;
+}

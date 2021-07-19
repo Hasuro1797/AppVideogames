@@ -1,0 +1,40 @@
+/* *Search Name*/
+#SearchName{
+    display: flex;
+    justify-content: center;;
+    align-items: center;
+    background-color: aqua;
+    width: 60%;
+    height: 50px;
+    
+}
+/* *Title*/
+#Title{
+    margin-right: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+}
+/* *Button*/
+#buttonSearch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:30px;
+    background-color: rgb(66, 64, 64);
+    width: 30px;
+    cursor: pointer;
+}
+#buttonSearch:hover{
+    background-color: rgb(105, 101, 101);
+}
+#icon{
+    color: white;
+}
+/* *Input navBar */
+.inputNavBar{
+    height: 30px;
+    width: 250px;
+    font-size: 17px;
+    font-family: 'Raleway', sans-serif;
+}

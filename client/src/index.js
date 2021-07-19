@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
+import store from './Redux/store/index'
 import { BrowserRouter }from 'react-router-dom';
 import AppVideoGames from './App';
+import {Provider} from 'react-redux'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <AppVideoGames/>
-    </BrowserRouter>
-  </React.StrictMode>,
+  <Provider store = {store}>
+    <React.StrictMode>
+      <BrowserRouter>
+        <AppVideoGames/>
+      </BrowserRouter>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 

@@ -1,0 +1,44 @@
+/* *Backgorund image*/
+#backgroundImage{
+    background-image: url('../../images/background-image.jpg');
+    height: 657px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 1 1 0;
+}
+#backgroundImage:hover{
+    box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+}
+a{
+    text-decoration : none;
+    color: white;
+}
+
+/**Logo Item */
+#LogoItem{
+    margin:70px;
+    width: 264px;
+}
+#LogoItem:hover{
+    box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+    background: rgba(163,163,163, 1);
+}
+
+/* *Btn Home*/
+#BtnToHome{
+    margin-left: 150px; 
+    width: 120px;
+    height: 50px;
+    border: none;
+    background: #D84DC3;
+    border-radius: 10px; 
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .1s ease all;
+}
+
+#BtnToHome:hover{
+    box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+}

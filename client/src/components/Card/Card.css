@@ -1,0 +1,64 @@
+/* *Card */
+#card{
+    margin:25px;
+    width: 300px;
+    height: 250px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0,0.5);
+    color: white;
+    cursor: pointer;
+}
+#card:hover {
+    transform: scale(1.040);
+    transition: 0.2s ease all;
+}
+/* *Background Image */
+#image-container{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+#background-image{
+    width: 270px;
+    height: 150px;
+    border-radius: 10px;;
+}
+
+/* *Name-card */
+#Name-card{
+    width: 300px;
+    height: 40px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+/* *genre-rating */
+#genre-rating{
+    display: flex;
+    align-items: center; 
+}
+/* *Genre-card */
+#Genre-card{
+    /* background-color: aqua; */
+    width: 80%;
+    height: 40px;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+}
+p{
+    margin-left: 20px;
+}
+
+/* *Rating-card */
+#Rating-card{
+    width: 20%;
+    height: 24px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+#icon-start{
+    color: yellow;
+}
