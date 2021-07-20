@@ -31,11 +31,11 @@ const addVideogames = () => {
                             //creo el video juego 
                             Videogame.create({
                                 name: element.name,
-                                status: "no_created",
+                                status: "on platform",
                                 released: element.released,
                                 rating: element.rating,
                                 background_image: element.background_image,
-                                description: videogame.description
+                                description: videogame.description_raw
                             })
                             .then(videogameCreated =>{
                                 // Relaciono el video juego creado con el array de ids de los generos 

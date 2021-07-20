@@ -31,6 +31,8 @@ conn.sync({ force: false}).then(() => {
 })
 .then(()=>{
   // cargo a la base de datos los video juegos, los generos y las plataformas
-  Promise.all([addGenres(),addPlatforms(),addVideogames()]);
+  Promise.all([addGenres(),addPlatforms()]);
+}).then(results =>{
+  addVideogames();
 })
 .catch(error => console.error(error))
