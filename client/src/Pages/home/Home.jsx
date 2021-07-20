@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { useEffect, useState } from 'react';
 import FilterBox from '../../Components/Filter/FilterBox';
 import OrderBy from '../../Components/OrderBy/OrderBy';
-import { getGenres, getVideoGameByName } from '../../Redux/actions/index.js';
+import { getGenres, getVideoGames } from '../../Redux/actions/index.js';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import Cards from '../../Components/Cards/Cards';
 import './Home.css';
@@ -11,11 +11,11 @@ import './Home.css';
 
 function Home({genres, videoGames, getGenres, getVideoGames}) {
     const listVideoGames = [{id:1,name:"Created"},{id:2,name:"On platform"}]
-
     useEffect(() => {
         if(!genres.length)getGenres()
-        if(!videoGames.length)getVideoGames(null,1)
+        if(!videoGames.length)getVideoGames(1)
     }, [])
+    
 
     return (
         <div id='Home'>
@@ -45,7 +45,7 @@ const mapStateToProps = (state) =>{
 const mapDispatchToProps = (dispatch) =>{
     return{
         getGenres: ()=> dispatch(getGenres()),
-        getVideoGames: (name,page) => dispatch(getVideoGameByName(name,page))
+        getVideoGames: (page,name,genre,status) => dispatch(getVideoGames(page,name,genre,status))
     }
 }
 

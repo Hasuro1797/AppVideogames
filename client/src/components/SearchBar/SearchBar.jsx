@@ -1,22 +1,22 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-//import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { getVideoGameByName } from '../../Redux/actions/index.js';
+import { getVideoGames } from '../../Redux/actions/index.js';
+import { connect } from "react-redux";
 import './SearchBar.css'
 
-function SearchBar({ videoGames,getVideoGameByName }) {
-    const [name, setname] = useState("");
-    
-    
+function SearchBar({getVideoGames, setName}) {
+    const [input, setInput] = useState("");
+
     const handleChange = (event) =>{
-        setname(event.target.value);
+        setInput(event.target.value);
     }
     
     const handleSubmit = (event) =>{
         event.preventDefault();
-        setname("");
+        getVideoGames(1,input)
+        setName(input)
+        setInput("");
 
     
     }
@@ -30,26 +30,20 @@ function SearchBar({ videoGames,getVideoGameByName }) {
             spellCheck="false"
             autoComplete="off"
             placeholder = "Videogame..."
-            value={name}
+            value={input}
             onChange = {handleChange}
             />
-            <div id = "buttonSearch">
-                <FontAwesomeIcon id = 'icon' icon ={faSearch} onClick = {handleSubmit}/>
-            </div>
+            <button id = "buttonSearch" onClick = {handleSubmit}>
+                <FontAwesomeIcon id = 'icon' icon ={faSearch}/>
+            </button>
             
         </form>
     )
 }
-
-const mapStateToProps = (state) =>{
-    return {
-        videoGames: state.videogamesLoaded
-    }
-}
-
 const mapDispatchToProps = (dispatch) =>{
     return{
-        getVideoGameByName: name => dispatch(getVideoGameByName(name))
+        getVideoGames: (page,name,genre,status) => dispatch(getVideoGames(page,name,genre,status))
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+
+export default connect(null,mapDispatchToProps)(SearchBar);

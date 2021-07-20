@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 
 function Cards({videogames}) {
     if (videogames.length) {
-        console.log("el id es", videogames[0].id);
-        console.log(typeof videogames[0].id === "number");
+        // console.log("el id es", videogames[0].id);
+        // console.log(typeof videogames[0].id === "number");
         return (
             <>
                 {videogames.map(game =>

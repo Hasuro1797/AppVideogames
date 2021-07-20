@@ -6,7 +6,7 @@ function NavBar() {
     return (
         <nav id = 'Navigation'>
             <div id='LogoNavBar'>
-                <Link exact to = '/home' >
+                <Link exact to = '/' >
                     <img src={Logo} alt="logo_image" />
                 </Link>
             </div>
