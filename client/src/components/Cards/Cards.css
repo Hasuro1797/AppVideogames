@@ -1,0 +1,14 @@
+/* *box-message */
+#box-message{
+    height: 600px;
+    width: 100%;
+    display: flex;
+
+    justify-content: center;
+}
+/* *no-result */
+#no-result{
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+}

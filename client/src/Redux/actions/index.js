@@ -22,8 +22,8 @@ export function getVideoGames(page,name,genre,status) {
     // * casos de navegacion
     let request = `${LOCALHOST}/videogames?page=${page}`
     if(name) request += `&name=${name}`;
-    if(genre) request += `&genre=${name}`;
-    if(status) request += `&status=${name}`;
+    if(genre) request += `&genre=${genre}`;
+    if(status) request += `&status=${status}`;
     return function(dispatch) {
         return fetch(request)
             .then(response => response.json())
@@ -37,8 +37,8 @@ export function getVideoGamesByOrder(page,name,genre,status,order,way) {
     // * casos de navegacion en orden
     let request = `${LOCALHOST}/videogames?page=${page}`
     if(name) request += `&name=${name}&order=${order}&way=${way}`;
-    else if(genre) request += `&genre=${name}&order=${order}&way=${way}`;
-    else if(status) request += `&status=${name}&order=${order}&way=${way}`;
+    else if(genre) request += `&genre=${genre}&order=${order}&way=${way}`;
+    else if(status) request += `&status=${status}&order=${order}&way=${way}`;
     else request += `&order=${order}&way=${way}`
     return function(dispatch) {
         return fetch(request)

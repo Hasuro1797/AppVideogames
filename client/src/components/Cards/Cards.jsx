@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from '../Card/Card';
 import {Link} from 'react-router-dom';
-
+import './Cards.css';
 function Cards({videogames}) {
     if (videogames.length) {
         // console.log("el id es", videogames[0].id);
@@ -24,9 +24,9 @@ function Cards({videogames}) {
 
     } else {
         return (
-            <>
-                <label>No se encontraron resultados para la busqueda</label>
-            </>
+            <div id="box-message">
+                <div id="no-result">No results found for the search</div>
+            </div>
         )
     }
 }

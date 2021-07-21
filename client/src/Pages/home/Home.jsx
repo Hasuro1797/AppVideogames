@@ -1,16 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import FilterBox from '../../Components/Filter/FilterBox';
 import OrderBy from '../../Components/OrderBy/OrderBy';
 import { getGenres, getVideoGames } from '../../Redux/actions/index.js';
-import SearchBar from '../../Components/SearchBar/SearchBar';
 import Cards from '../../Components/Cards/Cards';
 import './Home.css';
 
 
 function Home({genres, videoGames, getGenres, getVideoGames}) {
-    const listVideoGames = [{id:1,name:"Created"},{id:2,name:"On platform"}]
+    const listVideoGames = [{id:1,name:"All Games"},{id:2,name:"Created"},{id:3,name:"On platform"}]
     useEffect(() => {
         if(!genres.length)getGenres()
         if(!videoGames.length)getVideoGames(1)
@@ -23,8 +22,8 @@ function Home({genres, videoGames, getGenres, getVideoGames}) {
                 <div id="title-filter">
                     <p>Filter by:</p>
                 </div>
-                <FilterBox typeOfFilter = "Genres" listOfElement={genres}/>
                 <FilterBox typeOfFilter = "Videogames" listOfElement={listVideoGames}/>
+                <FilterBox typeOfFilter = "Genres" listOfElement={genres}/>
             </div>
             <div id ='main-container'>
                 <OrderBy/>
