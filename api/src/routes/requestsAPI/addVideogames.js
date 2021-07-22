@@ -11,7 +11,7 @@ const addVideogames = () => {
         // si no hay registros en la base de datos
         if(result.count === 0){
             //Voy a buscar los video juegos por pagina
-            for (let page = 1; page < 6; page++) {
+            for (let page = 1; page < 9; page++) {
                 fetch(`https://api.rawg.io/api/games?key=${API_KEY}&page=${page}`)
                 .then(data => data.json())
                 .then(videogames =>{

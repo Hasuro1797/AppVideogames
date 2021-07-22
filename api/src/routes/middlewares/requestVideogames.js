@@ -196,7 +196,7 @@ const requestVideogame = async(req,res,next)=> {
             include :Genre,
         })
         .then(result => res.send({
-            count : numOfGames,
+            count : result.count,
             pages: Math.ceil(result.count / limit),
             page : page, 
             results : result.rows,
