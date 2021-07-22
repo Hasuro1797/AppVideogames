@@ -6,6 +6,7 @@ import OrderBy from '../../Components/OrderBy/OrderBy';
 import { getGenres, getVideoGames } from '../../Redux/actions/index.js';
 import Cards from '../../Components/Cards/Cards';
 import './Home.css';
+import Pagination from '../../Components/Pagination/Pagination';
 
 
 function Home({genres, videoGames, getGenres, getVideoGames}) {
@@ -27,8 +28,11 @@ function Home({genres, videoGames, getGenres, getVideoGames}) {
             </div>
             <div id ='main-container'>
                 <OrderBy/>
-                <div id='list-of-videogames'>
-                    <Cards videogames = {videoGames}/>
+                <div>
+                    <Pagination/>
+                    <div id='list-of-videogames'>   
+                        <Cards videogames = {videoGames}/>
+                    </div>
                 </div>
             </div>
         </div>

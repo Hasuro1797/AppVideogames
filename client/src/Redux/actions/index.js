@@ -4,6 +4,7 @@ export const GET_VIDEOGAME_DETAIL = "GET_VIDEOGAME_DETAIL";
 export const GET_GENRES = "GET_GENRES";
 export const DEF_GENRE = "DEF_GENRE";
 export const DEF_STATUS = "DEF_STATUS";
+export const DEF_PAGE = "DEF_PAGE";
 
 let LOCALHOST = "http://localhost:3001";
 
@@ -65,4 +66,7 @@ export function defGenre(selectValue){
 }
 export function defStatus(selectValue){
     return {type: DEF_STATUS ,payload: selectValue}
+}
+export function defPage(selectValue){
+    return {type: DEF_PAGE ,payload: selectValue}
 }

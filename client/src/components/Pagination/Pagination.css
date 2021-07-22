@@ -1,0 +1,17 @@
+/* *box-pagination */
+#box-pagination{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#box-pagination h3 {
+    color: white;
+}
+
+/* *pagination */
+#pagination{
+    display: flex;
+}
+#pagination{
+    list-style: none;
+}

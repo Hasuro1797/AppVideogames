@@ -20,7 +20,8 @@
     transition: 0.1s ease all;
 }
 .active{
-    font-size: 15px;
+    font-size: 20px;
     cursor: pointer;
+    padding-left: 10px;
     background-color: rgb(97, 95, 95);
 }
