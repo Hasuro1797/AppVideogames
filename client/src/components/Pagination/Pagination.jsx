@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { defPage, getVideoGames } from '../../Redux/actions/index.js';
+import { defPage, getVideoGameByEndPoint, getVideoGames, resetPage } from '../../Redux/actions/index.js';
 import './Pagination.css';
 
 //* variables para darle dinamismo a la paginación
@@ -18,9 +18,8 @@ const range = (from, to) => {
     return range;
 }
 
-function Pagination({defPage,totalPages,getVideoGames,genre,status}) {
-    const [pageCurrent, setpageCurrent] = useState(1);
-    // const [input, setinput] = useState("")
+function Pagination({defPage,totalPages,pageCurrent,actualEndPoint,getVideoGameByEndPoint}) {
+    
     //* El numero de vecinos de la pagina actual (1)<<{4,5}[6]{7,8}>>(12)
     const pageNeighbords = 1 //* decido darle solo un vecino;
     //* Funcion fetchNumbers: da el dinamismo al la paginacion
@@ -92,38 +91,40 @@ function Pagination({defPage,totalPages,getVideoGames,genre,status}) {
         return range(1,totalPages);
     }
     //* creo el array deacuerdo a la situacion
-    const arrayPages = fecthPagesNumbers()
+    const arrayPages = fecthPagesNumbers();
+    var currentEndPoint = actualEndPoint;
 
     //*evento del previus
-    const handleMoveLeft = (page)=>(event) =>{
+    const handleMoveLeft = (value)=>(event) =>{
         event.preventDefault();
-        console.log("la pagina actual es----------",page);
-        //* actualizo a la nueva pagina
-        setpageCurrent(page);
+        console.log("la pagina actual es----------",value);
+        currentEndPoint = currentEndPoint.replace(/(=)[0-9]+/g,`=${value}`);
+        getVideoGameByEndPoint(currentEndPoint);
         //* actualizo el estado de redux
-        defPage(page);
-        //* request con la page requerida
-        getVideoGames(page,null,genre,status);
+        defPage(value);
+
+        
         
     }
     //* evento del next
-    const handleMoveRight = (page) =>(event)=>{
+    const handleMoveRight = (value) =>(event)=>{
         event.preventDefault();
         //*actualizo a la nueva pagina
-        setpageCurrent(page);
-        console.log("la pagina actual es--------",page);
+        console.log("la pagina actual es--------",value);
+        currentEndPoint = currentEndPoint.replace(/(=)[0-9]+/g,`=${value}`);
+        getVideoGameByEndPoint(currentEndPoint);
         //* actualizo el estado de redux
-        defPage(page);
+        defPage(value);
         //* request con la page requerida
-        getVideoGames(page,null,genre,status);
     }
     //* evento de click en una pagina especifica
     const handleClick = (value) =>(event)=>{
         event.preventDefault();
-        setpageCurrent(value);
+        //*request con en EndPoint requerido
+        currentEndPoint = currentEndPoint.replace(/(=)[0-9]+/g,`=${value}`);
+        getVideoGameByEndPoint(currentEndPoint);
+        //* actuañizo el estado en redux
         defPage(value);
-        //*request con la page requerida
-        getVideoGames(value,null,genre,status)
     }
     return (
         <>
@@ -172,14 +173,18 @@ const mapStateToProps = (state) =>{
     return {
         totalPages: state.totalPages,
         genre: state.genre,
-        status: state.status
+        status: state.status,
+        actualEndPoint: state.actualEndPoint,
+        pageCurrent: state.page,
     }
 }
 
 const mapDispatchToProps = (dispatch) =>{
     return{
         defPage: (currentPage) => dispatch(defPage(currentPage)),
-        getVideoGames: (page,name,genre,status) => dispatch(getVideoGames(page,name,genre,status))
+        getVideoGames: (page,name,genre,status) => dispatch(getVideoGames(page,name,genre,status)),
+        getVideoGameByEndPoint:(link) => dispatch(getVideoGameByEndPoint(link)),
+        resetPage: (boolean) => dispatch(resetPage(boolean)) 
     }
 }
 

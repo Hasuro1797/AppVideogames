@@ -2,12 +2,12 @@
 #image-detail{
     /* background-repeat: no-repeat; */
     background-attachment: fixed;
-    height: 581px;
+    height: 648px;
 }
 /* *Container global*/
 #container-global{
     background-color: rgba(0, 0, 0,0.5);
-    height: 581px;
+    height: 648px;
 }
 /* *title-of-game*/
 #title-of-game{
@@ -22,7 +22,7 @@
     height: 100%;
     display: flex;
 }
-/* *background-boxl*/
+/* *background-box*/
 #background-box{
     /* background-color: aqua; */
     width: 50%;
@@ -34,6 +34,7 @@
 /* *Bg-image */
 #bg-image{
     width: 95%;
+    max-height: 600px;
     border-radius: 5px;
     box-shadow: 3px 0px 30px rgba(163,163,163, 1);;
 }

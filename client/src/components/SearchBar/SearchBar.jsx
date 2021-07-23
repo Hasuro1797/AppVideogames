@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { getVideoGames } from '../../Redux/actions/index.js';
+import { defName, getVideoGames } from '../../Redux/actions/index.js';
 import { connect } from "react-redux";
 import './SearchBar.css'
 
-function SearchBar({getVideoGames, setName}) {
+function SearchBar({getVideoGames,defName}) {
     const [input, setInput] = useState("");
 
     const handleChange = (event) =>{
@@ -14,8 +14,9 @@ function SearchBar({getVideoGames, setName}) {
     
     const handleSubmit = (event) =>{
         event.preventDefault();
-        getVideoGames(1,input)
-        setName(input)
+        getVideoGames(1,input);
+        defName(input);
+        //setName(input);
         setInput("");
 
     
@@ -42,7 +43,8 @@ function SearchBar({getVideoGames, setName}) {
 }
 const mapDispatchToProps = (dispatch) =>{
     return{
-        getVideoGames: (page,name,genre,status) => dispatch(getVideoGames(page,name,genre,status))
+        getVideoGames: (page,name,genre,status) => dispatch(getVideoGames(page,name,genre,status)),
+        defName: (value) => dispatch(defName(value))
     }
 }
 

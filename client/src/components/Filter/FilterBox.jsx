@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
-import { defGenre,defStatus,getVideoGames,defPage } from '../../Redux/actions/index.js';
+import React  from 'react'
+import { defGenre,defStatus,getVideoGames,defPage, resetPage, defName } from '../../Redux/actions/index.js';
 import { connect } from 'react-redux';
 import './FilterBox.css';
 
-function FilterBox({typeOfFilter,defPage,listOfElement,defGenre,defStatus,getVideoGames,genre,status}) {
-    //const [select, setSelect] = useState("element")
+function FilterBox({typeOfFilter,defPage,listOfElement,defGenre,defName,defStatus,getVideoGames,genre,status,resetPage}) {
     const handleSelect = (event) =>{
         const value = event.target.innerText;
         if(value === "All Games"){
@@ -12,16 +11,22 @@ function FilterBox({typeOfFilter,defPage,listOfElement,defGenre,defStatus,getVid
             defGenre("");
             defStatus("");
             defPage(1);
+            defName("");
+            resetPage(true);
         }else{
             if(typeOfFilter === "Genres"){
                 defGenre(value);
                 getVideoGames(1,null,value,null)
-                defPage(1)
+                defPage(1);
+                resetPage(true);
+                defName("");
             } 
             else{
                 defStatus(value);
                 getVideoGames(1,null,null,value)
-                defPage(1)
+                defPage(1);
+                defName("");
+                resetPage(true);
             } 
         }
 
@@ -58,7 +63,9 @@ const mapDispatchToProps = (dispatch) =>{
         defPage: (value)=> dispatch(defPage(value)),
         defGenre: (value)=> dispatch(defGenre(value)),
         defStatus: (value) => dispatch(defStatus(value)),
-        getVideoGames: (page,name,genre,status) => dispatch(getVideoGames(page,name,genre,status))
+        defName: (value) => dispatch(defName(value)),
+        getVideoGames: (page,name,genre,status) => dispatch(getVideoGames(page,name,genre,status)),
+        resetPage: (boolean) => dispatch(resetPage(boolean)) 
     }
 }
 

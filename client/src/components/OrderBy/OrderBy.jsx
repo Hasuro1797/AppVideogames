@@ -4,8 +4,7 @@ import { getVideoGamesByOrder, getVideoGames } from '../../Redux/actions';
 import SearchBar from '../SearchBar/SearchBar'
 import './OrderBy.css';
 
-const OrderBy = ({getVideoGamesByOrder, getVideoGames, genre,status,page}) => {
-    const [name, setName] = useState("");
+const OrderBy = ({getVideoGamesByOrder, getVideoGames, genre,status,name,page}) => {
     const [order, setOrder] = useState("")
     const orderBy = ["Default","Name A-Z", "Name Z-A", "Rating high", "Rating low"];
 
@@ -41,26 +40,8 @@ const OrderBy = ({getVideoGamesByOrder, getVideoGames, genre,status,page}) => {
             // }
             setOptions(page,"name","desc");
         }else if(input === "Rating high"){
-            // if(name){
-            //     getVideoGamesByOrder(1,name,null,null,"rating","desc")
-            // }else if(genre){
-            //     getVideoGamesByOrder(1,null,genre,null,"rating","desc")
-            // }else if(status){
-            //     getVideoGamesByOrder(1,null,null,status,"rating","desc")
-            // }else{
-            //     getVideoGamesByOrder(1,null,null,null,"rating","desc")
-            // }
             setOptions(page,"rating","desc")
         }else if(input === "Rating low"){
-            // if(name){
-            //     getVideoGamesByOrder(1,name,null,null,"rating","asc")
-            // }else if(genre){
-            //     getVideoGamesByOrder(1,null,genre,null,"rating","asc")
-            // }else if(status){
-            //     getVideoGamesByOrder(1,null,null,status,"rating","asc")
-            // }else{
-            //     getVideoGamesByOrder(1,null,null,null,"rating","asc")
-            // }
             setOptions(page,"rating","asc")
         }else if(input === "Default")
             if(name){
@@ -88,7 +69,7 @@ const OrderBy = ({getVideoGamesByOrder, getVideoGames, genre,status,page}) => {
 
     return (
         <div id = "OptionSearch" >
-            <SearchBar setName = {setName} />
+            <SearchBar/>
             <div id= 'electionsOfOrder'>
                 <label id='titleOrder'>Order By:</label>
                 <select className='select-order' value ={order} onChange={(event)=>handleSearch(event.target.value)}>
@@ -105,6 +86,7 @@ const mapStateToProps = (state) =>{
     return {
         genre: state.genre,
         status: state.status,
+        name: state.name,
         page: state.page
     }
 }

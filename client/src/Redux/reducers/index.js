@@ -3,9 +3,12 @@ import {
     GET_VIDEOGAME_DETAIL, 
     GET_GENRES,
     GET_VIDEOGAMES_BY_ORDER,
+    GET_VIDEOGAMES_BY_ENDPOINT,
     DEF_GENRE,
     DEF_STATUS,
-    DEF_PAGE
+    DEF_PAGE,
+    DEF_NAME,
+    RESET_PAGE,
 } from '../actions/index';
 
 const inicialState ={
@@ -15,10 +18,11 @@ const inicialState ={
     platforms:[],
     genre : "",
     status: "",
+    name: "",
     page: 1,
     totalPages: null,
-    count:null,
-    actualEndPoint: ""
+    actualEndPoint: "",
+    reset:false,
 }
 
 const reducerVideogame = function(state = inicialState, action){
@@ -26,7 +30,6 @@ const reducerVideogame = function(state = inicialState, action){
         case GET_VIDEOGAMES:
             return {
                 ...state,
-                count: action.payload.count,
                 totalPages: action.payload.pages,
                 actualEndPoint: action.payload.actualEndPoint,
                 videogames : action.payload.results
@@ -34,7 +37,6 @@ const reducerVideogame = function(state = inicialState, action){
         case GET_VIDEOGAMES_BY_ORDER:
             return {
                 ...state,
-                count: action.payload.count,
                 totalPages: action.payload.pages,
                 actualEndPoint: action.payload.actualEndPoint,
                 videogames: action.payload.results
@@ -44,6 +46,13 @@ const reducerVideogame = function(state = inicialState, action){
                 ...state,
                 videogameDetail: action.payload
             }
+        case GET_VIDEOGAMES_BY_ENDPOINT:
+        return {
+            ...state,
+            totalPages: action.payload.pages,
+            actualEndPoint: action.payload.actualEndPoint,
+            videogames : action.payload.results
+        }
         case GET_GENRES:
             return {
                 ...state,
@@ -59,10 +68,20 @@ const reducerVideogame = function(state = inicialState, action){
                 ...state,
                 status: action.payload
             }
+        case DEF_NAME:
+            return {
+                ...state,
+                name: action.payload
+            }
         case DEF_PAGE:
             return {
                 ...state,
                 page: action.payload
+            }
+        case RESET_PAGE:
+            return {
+                ...state,
+                reset: action.payload
             }
         default:
             return state;

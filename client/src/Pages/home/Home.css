@@ -25,10 +25,18 @@
 /* *List of video games */
 #list-of-videogames{
     width: 100%;
-    background-image: url("../../images/home-background.jpg");
+    /* background-image: url("../../images/home-background.jpg"); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
     flex-flow: row wrap;
+}
+/* *box-spinner*/
+.box-spinner{
+    background-color: rgba(3, 3, 3,0.7);
+    height: 581px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 

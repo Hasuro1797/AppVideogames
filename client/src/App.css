@@ -8,6 +8,8 @@
 
 }
 body{
-  background-color: rgb(100, 90, 90);
+  background-image: url('./images/bg-body.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: 'Raleway', sans-serif;
 }

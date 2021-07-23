@@ -5,6 +5,9 @@ export const GET_GENRES = "GET_GENRES";
 export const DEF_GENRE = "DEF_GENRE";
 export const DEF_STATUS = "DEF_STATUS";
 export const DEF_PAGE = "DEF_PAGE";
+export const DEF_NAME = "DEF_NAME";
+export const RESET_PAGE = "RESET_PAGE";
+export const GET_VIDEOGAMES_BY_ENDPOINT = "GET_VIDEOGAMES_BY_ENDPOINT";
 
 let LOCALHOST = "http://localhost:3001";
 
@@ -60,6 +63,16 @@ export function getGenres() {
             });
     };
 }
+export function getVideoGameByEndPoint(link) {
+    return function(dispatch) {
+        return fetch(link)
+            .then(response => response.json())
+            .then(json => {
+                console.log("el videojuego es",json)
+                dispatch({ type: GET_VIDEOGAMES_BY_ENDPOINT, payload: json });
+            });
+    };
+}
 
 export function defGenre(selectValue){
     return {type: DEF_GENRE ,payload: selectValue}
@@ -69,4 +82,10 @@ export function defStatus(selectValue){
 }
 export function defPage(selectValue){
     return {type: DEF_PAGE ,payload: selectValue}
+}
+export function defName(selectValue){
+    return {type: DEF_NAME ,payload: selectValue}
+}
+export function resetPage(boolean){
+    return {type: RESET_PAGE ,payload: boolean}
 }
