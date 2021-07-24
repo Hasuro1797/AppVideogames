@@ -23,14 +23,12 @@ function SearchBar({getVideoGames,defName}) {
     }
     return (
         <form id="SearchName">
-            <label id ="Title" htmlFor = "name"> Search: </label>
             <input
             className = "inputNavBar"
             type="text"
-            id="name"
             spellCheck="false"
             autoComplete="off"
-            placeholder = "Videogame..."
+            placeholder = "Search Game"
             value={input}
             onChange = {handleChange}
             />

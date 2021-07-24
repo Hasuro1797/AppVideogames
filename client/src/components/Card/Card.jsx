@@ -2,7 +2,6 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import './Card.css'
-import Spinner from '../Spinner/Spinner'
 
 function Card({id,name ,genres ,rating ,background_image }) {
     return (

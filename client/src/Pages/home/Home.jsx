@@ -26,9 +26,6 @@ function Home({genres, videoGames, getGenres, getVideoGames}) {
                 :
                     <div id='Home'>
                         <div id ='table-filter'>
-                            <div id="title-filter">
-                                <p>Filter by:</p>
-                            </div>
                             <FilterBox typeOfFilter = "Videogames" listOfElement={listVideoGames}/>
                             <FilterBox typeOfFilter = "Genres" listOfElement={genres}/>
                         </div>

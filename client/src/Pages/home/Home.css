@@ -4,8 +4,10 @@
 }
 /* *Table of filter */
 #table-filter{
-    background-color: black;
+    /* background-color: red; */
     width: 20%;
+    margin-top: 70px;
+    margin-left: 15px;
 }
 /* *main-container */
 #main-container{
@@ -18,8 +20,9 @@
     height: 50px;
     font-weight: 600;
     font-size: 20px;
+    /* margin-left: 15px; */
     padding-left: 20px;
-    background-color: rgb(46, 43, 43);
+    background-color: rgb(65, 60, 60);
     color: white;
 }
 /* *List of video games */

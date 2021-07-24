@@ -11,10 +11,10 @@ function NavBar() {
                 </Link>
             </div>
             <ul id ='MenuItems'>
-                <NavLink exact to = '/home' activeClassName='active'>
+                <NavLink exact to = '/home' ClassName='active'>
                     <li>Home</li>
                 </NavLink>
-                <NavLink to ='/home/addvideogame' activeClassName='active'>
+                <NavLink to ='/home/addvideogame' ClassName='active'>
                     <li>Create</li>
                 </NavLink>
             </ul>

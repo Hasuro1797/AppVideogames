@@ -2,12 +2,19 @@ import {
     GET_VIDEOGAMES, 
     GET_VIDEOGAME_DETAIL, 
     GET_GENRES,
+    GET_PLATFORMS,
     GET_VIDEOGAMES_BY_ORDER,
     GET_VIDEOGAMES_BY_ENDPOINT,
     DEF_GENRE,
     DEF_STATUS,
     DEF_PAGE,
     DEF_NAME,
+    ADD_GENRE,
+    REMOVE_GENRE,
+    ADD_PLATFORM,
+    REMOVE_PLATFORM,
+    REMOVE_ALL,
+    //!eliminar esta parte
     RESET_PAGE,
 } from '../actions/index';
 
@@ -22,6 +29,10 @@ const inicialState ={
     page: 1,
     totalPages: null,
     actualEndPoint: "",
+    //* addvideogame
+    selectedGenres: [],
+    selectedPlatforms: [],
+    //!BORRAR ESTE ESTADO
     reset:false,
 }
 
@@ -58,6 +69,11 @@ const reducerVideogame = function(state = inicialState, action){
                 ...state,
                 genres: action.payload
             }
+        case GET_PLATFORMS:
+            return {
+                ...state,
+                platforms: action.payload
+            }
         case DEF_GENRE:
             return {
                 ...state,
@@ -77,6 +93,32 @@ const reducerVideogame = function(state = inicialState, action){
             return {
                 ...state,
                 page: action.payload
+            }
+        case ADD_GENRE:
+            return {
+                ...state,
+                selectedGenres: [...state.selectedGenres,action.payload]
+            }
+        case REMOVE_GENRE:
+            return {
+                ...state,
+                selectedGenres: state.selectedGenres.filter(element => element !== action.payload)
+            }
+        case ADD_PLATFORM:
+            return {
+                ...state,
+                selectedPlatforms: [...state.selectedPlatforms,action.payload]
+            }
+        case REMOVE_PLATFORM:
+            return {
+                ...state,
+                selectedPlatforms: state.selectedPlatforms.filter(element => element !== action.payload)
+            }
+        case REMOVE_ALL:
+            return {
+                ...state,
+                selectedPlatforms: [],
+                selectedGenres: []
             }
         case RESET_PAGE:
             return {

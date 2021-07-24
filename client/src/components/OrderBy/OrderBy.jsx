@@ -29,15 +29,6 @@ const OrderBy = ({getVideoGamesByOrder, getVideoGames, genre,status,name,page}) 
             // }
             setOptions(page,"name","asc")
         }else if(input === "Name Z-A"){
-            // if(name){
-            //     getVideoGamesByOrder(1,name,null,null,"name","desc")
-            // }else if(genre){
-            //     getVideoGamesByOrder(1,null,genre,null,"name","desc")
-            // }else if(status){
-            //     getVideoGamesByOrder(1,null,null,status,"name","desc")
-            // }else{
-            //     getVideoGamesByOrder(1,null,null,null,"name","desc")
-            // }
             setOptions(page,"name","desc");
         }else if(input === "Rating high"){
             setOptions(page,"rating","desc")
@@ -71,9 +62,8 @@ const OrderBy = ({getVideoGamesByOrder, getVideoGames, genre,status,name,page}) 
         <div id = "OptionSearch" >
             <SearchBar/>
             <div id= 'electionsOfOrder'>
-                <label id='titleOrder'>Order By:</label>
                 <select className='select-order' value ={order} onChange={(event)=>handleSearch(event.target.value)}>
-                    <option value="" >--/---/--</option>
+                    <option hidden selected >Order By</option>
                     {orderBy.map(orden =>
                         (<option key={orden} value={orden}>{orden}</option>))
                     }

@@ -20,14 +20,14 @@
     margin-right: 30px;
 }
 li{
-    margin: 25px 10px;
-    font-size: 20px;
+    /* margin: 25px 10px;
+    font-size: 20px; */
 }
 a{
-    text-decoration: none;
-    color: white;
+    /* text-decoration: none; */
+    /* color: white; */
 
 }
 .active{
-    background-color: #969292;
+    
 }

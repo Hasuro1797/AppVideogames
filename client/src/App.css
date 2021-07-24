@@ -8,7 +8,8 @@
 
 }
 body{
-  background-image: url('./images/bg-body.jpg');
+  /* background-image: url('./images/bg-body.jpg'); */
+  background-color: rgb(35, 35, 35);
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-family: 'Raleway', sans-serif;

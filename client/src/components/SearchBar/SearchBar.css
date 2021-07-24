@@ -6,6 +6,8 @@
     background-color: aqua;
     width: 60%;
     height: 50px;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
     
 }
 /* *Title*/
@@ -20,21 +22,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height:30px;
+    height:35px;
     background-color: rgb(66, 64, 64);
-    width: 30px;
+    width: 40px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    border: none;
     cursor: pointer;
 }
 #buttonSearch:hover{
-    background-color: rgb(105, 101, 101);
+    background-color: rgb(7, 7, 7);
 }
 #icon{
     color: white;
 }
 /* *Input navBar */
 .inputNavBar{
-    height: 30px;
-    width: 250px;
+    height: 35px;
+    width: 300px;
     font-size: 17px;
+    padding-left: 15px;
+    border: none;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
     font-family: 'Raleway', sans-serif;
 }
