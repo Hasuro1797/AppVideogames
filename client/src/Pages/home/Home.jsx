@@ -36,6 +36,7 @@ function Home({genres, videoGames, getGenres, getVideoGames}) {
                                 <div id='list-of-videogames'>   
                                     <Cards videogames = {videoGames} loading={loading}/>
                                 </div>
+                                <Pagination/>
                             </div>
                         </div>
                     </div>

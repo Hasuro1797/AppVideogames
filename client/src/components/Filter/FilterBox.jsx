@@ -34,7 +34,7 @@ function FilterBox({typeOfFilter,defPage,listOfElement,defGenre,defName,defStatu
     return (
         <div id="box-filter">
             <div id='type-filter'>
-                <h3 id ="h3-title">{typeOfFilter}:</h3>
+                <h3 id ="h3-title">{typeOfFilter}</h3>
                 {
                     listOfElement.map((element)=>
                     <div 

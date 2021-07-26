@@ -4,9 +4,10 @@
     width: 300px;
     height: 250px;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0,0.5);
+    background-color: #161d2b;
     color: white;
     cursor: pointer;
+
 }
 #card:hover {
     transform: scale(1.040);
@@ -16,12 +17,13 @@
 #image-container{
     display: flex;
     justify-content: center;
-    padding-top: 10px;
+    /* padding-top: 10px; */
 }
 #background-image{
-    width: 270px;
-    height: 150px;
-    border-radius: 10px;;
+    width: 300px;
+    height: 160px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 /* *Name-card */
@@ -29,8 +31,10 @@
     width: 300px;
     height: 40px;
     padding-left: 20px;
+    padding-top: 15px;
     display: flex;
     align-items: center;
+    font-weight: 900;
 }
 /* *genre-rating */
 #genre-rating{
@@ -46,7 +50,7 @@
     flex-flow: row wrap;
     align-content: center;
 }
-p{
+#Genre-card p{
     margin-left: 20px;
 }
 
@@ -60,5 +64,5 @@ p{
 
 }
 #icon-start{
-    color: rgb(209, 209, 12);
+    color: #43D9BD;
 }

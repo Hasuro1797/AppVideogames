@@ -5,8 +5,8 @@
 }
 #type-filter{
     /* height: 40px; */
-    background-color: aqua;
-    color: black;
+    background-color: #161d2b;
+    color: white;
     /* padding-left: 20px; */
     border-radius: 15px;
     margin-bottom: 10px;
@@ -15,7 +15,7 @@
     align-items: center; */
 }
 #h3-title{
-    background-color: black;
+    background-color: #2E3D59;
     color: aliceblue;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -26,16 +26,18 @@
 .element{
     
     font-size: 16px;
-    padding: 5px 10px;
+    padding: 10px 10px;
     cursor: pointer;
 }
 .element:hover{
-    background-color: rgb(97, 95, 95);
+    background-color: #43D9BD;
+    font-weight: 700;
     transition: 0.1s ease all;
 }
 .active{
-    font-size: 20px;
+    font-size: 16px;
+    font-weight: 700;
     cursor: pointer;
-    padding-left: 10px;
-    background-color: rgb(97, 95, 95);
+    padding: 10px 10px;
+    background-color: #43D9BD;
 }

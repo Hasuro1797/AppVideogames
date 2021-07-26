@@ -23,14 +23,14 @@ function Videogame(props) {
                     {props.videoGame.hasOwnProperty("genres")?
                     <div id="image-detail" style={{ backgroundImage: `url(${props.videoGame.background_image})`}}>
                         <div id = "container-global">
-                            <div id= "title-of-game">
-                                    <h1>{props.videoGame.name}</h1>
-                            </div>
                             <div id = "container-details">
                                 <div id="background-box">
                                     <img id= 'bg-image'src ={props.videoGame.background_image} alt={'image ' + props.videoGame.id}/>
                                 </div>
                                 <div id="box-info">
+                                    <div id= "title-of-game">
+                                            <h1>{props.videoGame.name}</h1>
+                                    </div>
                                     <div id ="description">
                                         <h3>Description:</h3>
                                         <p id= "text-description">{props.videoGame.description}</p>

@@ -1,19 +1,21 @@
 #OptionSearch{
     display: flex;
-    width: 99%;
+    width: 95%;
     margin-top: 15px;
+    margin-left: 15px;
     margin-bottom: 15px;
     
 }
 /* *electionsOfOrder */
 #electionsOfOrder{
-    background-color: aqua;
+    background-color:#43D9BD;
     width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;
+
 }
 
 /* *select-order */
@@ -21,13 +23,23 @@
     height: 30px;
     width: 200px;
     border: none;
+    /* appearance: none; */
+    /* -webkit-appearance: none; */
+	-moz-appearance: none;
+    /* border-color: black; */
     font-size: 17px;
-    font-family:'Raleway', sans-serif;
-    padding-left: 10px;
-    background-color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    padding-left: 15px;
+    background-color: #161d2b;
     color: white;
-    border-radius: 5px;
+    border-radius: 15px;
 }
-.select-order:hover{
-    box-shadow: 3px 0px 30px rgba(241, 239, 239,1);
-}
+
+
+/* .option-select{
+    border: black;
+    padding-top: 10px;
+    padding-bottom: 15px;
+} */
+

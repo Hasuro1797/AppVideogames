@@ -2,19 +2,22 @@
 #image-detail{
     /* background-repeat: no-repeat; */
     background-attachment: fixed;
-    height: 648px;
+    height: 750px;
 }
 /* *Container global*/
 #container-global{
-    background-color: rgba(0, 0, 0,0.5);
-    height: 648px;
+    background-color: rgba(11, 15, 26,0.7);
+    height: 750px;
 }
+
 /* *title-of-game*/
 #title-of-game{
-    /* background-color: blue; */
     color: aliceblue;
+    font-size: 25px;
     font-weight: 100;
-    padding: 10px;
+    padding-top: 25px;
+    padding-left: 20px;
+    /* background-color: aqua; */
 }
 /* *container-details */
 #container-details{
@@ -26,8 +29,9 @@
 #background-box{
     /* background-color: aqua; */
     width: 50%;
-    height: 90%;
+    height: 100%;
     display: flex;
+    /* background-color: rgb(230, 220, 245); */
     justify-content: center;
     align-items: center;
 }
@@ -36,21 +40,25 @@
     width: 95%;
     max-height: 600px;
     border-radius: 5px;
-    box-shadow: 3px 0px 30px rgba(163,163,163, 1);;
+    box-shadow: 3px 0px 10px rgba(163,163,163, 1);;
 }
 /* *Box-info */
 #box-info{
     width: 50%;
     padding-right: 20px;
 }
+#box-info p{
+    padding-left: 20px;
+}
 /* *descriptionl*/
 #description{
     /* background-color: blueviolet; */
-    padding-top: 30px;
+    padding-top: 20px;
     color: white;
 }
 #text-description{
     font-size: 14px;
+    
 }
 /* *released*/
 #released{
@@ -87,5 +95,5 @@
     color: white;
 }
 h3{
-    padding: 8px 0px 8px 8px;
+    padding: 10px 0px 8px 20px;
 }

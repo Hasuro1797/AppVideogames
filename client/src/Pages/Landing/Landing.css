@@ -4,41 +4,58 @@
     height: 657px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    flex: 1 1 0;
+    justify-content: center;
+    align-items: center;
 }
-#backgroundImage:hover{
+#backgroundImage img{
+    width: 250px;
+}
+/* #backgroundImage:hover{
     box-shadow: 3px 0px 30px rgba(163,163,163, 1);
-}
+} */
 a{
     text-decoration : none;
     color: white;
+    padding-right: 25px;
+    padding-left: 25px;
 }
 
+/* *container landing */
+#container-landing{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(11, 15, 26,0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 /**Logo Item */
 #LogoItem{
     margin:70px;
     width: 264px;
 }
 #LogoItem:hover{
-    box-shadow: 3px 0px 30px rgba(163,163,163, 1);
-    background: rgba(163,163,163, 1);
+    transform: scale(1.040);
 }
 
 /* *Btn Home*/
 #BtnToHome{
-    margin-left: 150px; 
+    /* margin-left: 150px;  */
     width: 120px;
     height: 50px;
-    border: none;
-    background: #D84DC3;
-    border-radius: 10px; 
+    background: transparent;
+    border: 3px solid #43D9BD;
+    font-family: 'Montserrat', sans-serif ;
+    border-radius: 25px; 
     color: white;
     font-weight: 600;
     cursor: pointer;
     transition: .1s ease all;
+    
 }
 
 #BtnToHome:hover{
-    box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+    box-shadow: 3px 0px 10px rgba(163,163,163, 1);
+    transform: scale(1.040);
 }

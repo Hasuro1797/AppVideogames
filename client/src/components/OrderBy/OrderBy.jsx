@@ -65,7 +65,7 @@ const OrderBy = ({getVideoGamesByOrder, getVideoGames, genre,status,name,page}) 
                 <select className='select-order' value ={order} onChange={(event)=>handleSearch(event.target.value)}>
                     <option hidden selected >Order By</option>
                     {orderBy.map(orden =>
-                        (<option key={orden} value={orden}>{orden}</option>))
+                        (<option className = "option-select" key={orden} value={orden}>{orden}</option>))
                     }
                 </select>
             </div>

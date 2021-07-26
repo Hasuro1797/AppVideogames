@@ -1,17 +1,23 @@
 /* *Navigation */
 #Navigation{
-    background-color : black;
+    /* position: fixed; */
+    background-color: #0b0f1a;
+    box-shadow: 10px 0px 30px black;
     height: 75px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 5px 0 10px rgba(255,255,255,0.6);
+    
 }
 /* *Logo NavBar */
 #LogoNavBar{
     padding: 0 60px;
     /* background-color: rgb(233, 215, 215); */
+}
+#LogoNavBar img{
+    width: 100px;
+    height: 30px;
 }
 /* *Menu items */
 #MenuItems{
@@ -19,15 +25,15 @@
     list-style: none;
     margin-right: 30px;
 }
-li{
-    /* margin: 25px 10px;
-    font-size: 20px; */
+#MenuItems li{
+    margin: 25px 10px;
+    font-size: 20px;
+    font-weight: 700;
 }
-a{
+#MenuItems a{
     /* text-decoration: none; */
-    /* color: white; */
+    color: white
 
 }
 .active{
-    
 }

@@ -155,7 +155,7 @@ function Pagination({defPage,totalPages,pageCurrent,actualEndPoint,getVideoGameB
                                     </li>
                                 );
                                 return (
-                                    <li key={index} className={`page-item${ pageCurrent === page ? ' active' : ''}`}>
+                                    <li key={index} className={`page-item${ pageCurrent === page ? '-active' : ''}`}>
                                         <a className="page-link" href="#" onClick={ handleClick(page) }>{ page }</a>
                                     </li>
                                 )
