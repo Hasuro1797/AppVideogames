@@ -23,10 +23,7 @@
     height: 30px;
     width: 200px;
     border: none;
-    /* appearance: none; */
-    /* -webkit-appearance: none; */
 	-moz-appearance: none;
-    /* border-color: black; */
     font-size: 17px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -36,10 +33,4 @@
     border-radius: 15px;
 }
 
-
-/* .option-select{
-    border: black;
-    padding-top: 10px;
-    padding-bottom: 15px;
-} */
 

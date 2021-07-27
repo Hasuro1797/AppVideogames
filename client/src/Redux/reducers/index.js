@@ -14,8 +14,6 @@ import {
     ADD_PLATFORM,
     REMOVE_PLATFORM,
     REMOVE_ALL,
-    //!eliminar esta parte
-    RESET_PAGE,
 } from '../actions/index';
 
 const inicialState ={
@@ -32,8 +30,6 @@ const inicialState ={
     //* addvideogame
     selectedGenres: [],
     selectedPlatforms: [],
-    //!BORRAR ESTE ESTADO
-    reset:false,
 }
 
 const reducerVideogame = function(state = inicialState, action){
@@ -119,11 +115,6 @@ const reducerVideogame = function(state = inicialState, action){
                 ...state,
                 selectedPlatforms: [],
                 selectedGenres: []
-            }
-        case RESET_PAGE:
-            return {
-                ...state,
-                reset: action.payload
             }
         default:
             return state;

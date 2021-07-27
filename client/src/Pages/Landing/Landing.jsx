@@ -12,6 +12,7 @@ function Landing() {
                         <img src={Logo} alt="asd" />
                     </NavLink>
                 </div>
+                <h2>Discover all the <b>trending games</b> and immerse yourself by registering your <b>favorite games</b></h2>
                 <NavLink to = '/home'>
                     <button id ='BtnToHome'>TRY IT NOW</button>
                 </NavLink>   

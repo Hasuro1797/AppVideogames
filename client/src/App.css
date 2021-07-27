@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;900&display=swap');
 
 *, *::before, *::after{
   margin: 0;
@@ -8,7 +8,6 @@
 
 }
 body{
-  /* background-image: url('./images/bg-body.jpg'); */
   background-color: #0b0f1a;
   background-repeat: no-repeat;
   background-attachment: fixed;

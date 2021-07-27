@@ -5,34 +5,33 @@ import SearchBar from '../SearchBar/SearchBar'
 import './OrderBy.css';
 
 const OrderBy = ({getVideoGamesByOrder, getVideoGames, genre,status,name,page}) => {
+    //* estado del order
     const [order, setOrder] = useState("")
+    //* array de los tipos de order
     const orderBy = ["Default","Name A-Z", "Name Z-A", "Rating high", "Rating low"];
-
+    //* funcion que cambia con el evento click
     const handleSearch = (order) =>{
-        console.log("el valor de genero es",genre);
-        console.log("el valor de status es",status);
+        //* cambio el estado
         setOrder(order);
+        //* ejecuto la funcion searchByOrder
         searchByOrder(order,name,genre,status,page);
+        //* seteo el order a su estado incial
         setOrder("");
     }
+    //* defino la funcion searchByOrder
     //*page,name,genre,status,order,way
     const searchByOrder = (input,name,genre,status,page)=>{
         if(input === "Name A-Z"){
-            // if(name){
-            //     getVideoGamesByOrder(1,name,null,null,"name","asc")
-            // }else if(genre){
-            //     getVideoGamesByOrder(1,null,genre,null,"name","asc")
-            // }else if(status){
-            //     getVideoGamesByOrder(1,null,null,status,"name","asc")
-            // }else{
-            //     getVideoGamesByOrder(1,null,null,null,"name","asc")
-            // }
+            //* ejecuto la funcion setOptions
             setOptions(page,"name","asc")
         }else if(input === "Name Z-A"){
+            //* ejecuto la funcion setOptions
             setOptions(page,"name","desc");
         }else if(input === "Rating high"){
+            //* ejecuto la funcion setOptions
             setOptions(page,"rating","desc")
         }else if(input === "Rating low"){
+            //* ejecuto la funcion setOptions
             setOptions(page,"rating","asc")
         }else if(input === "Default")
             if(name){
@@ -45,6 +44,7 @@ const OrderBy = ({getVideoGamesByOrder, getVideoGames, genre,status,name,page}) 
                 getVideoGames(page)
             }
     }
+    //* defino la funcion SetOptions
     const setOptions =(page,mode,way) =>{
         if(name){
             getVideoGamesByOrder(page,name,null,null,mode,way)

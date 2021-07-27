@@ -4,7 +4,6 @@
 }
 /* *Table of filter */
 #table-filter{
-    /* background-color: red; */
     width: 20%;
     margin-top: 14px;
     margin-left: 15px;
@@ -20,7 +19,6 @@
     height: 50px;
     font-weight: 600;
     font-size: 20px;
-    /* margin-left: 15px; */
     padding-left: 20px;
     background-color: rgb(65, 60, 60);
     color: white;
@@ -28,7 +26,6 @@
 /* *List of video games */
 #list-of-videogames{
     width: 100%;
-    /* background-image: url("../../images/home-background.jpg"); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;

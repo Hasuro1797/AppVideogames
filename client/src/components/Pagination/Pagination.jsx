@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { connect } from 'react-redux';
-import { defPage, getVideoGameByEndPoint, getVideoGames, resetPage } from '../../Redux/actions/index.js';
+import { defPage, getVideoGameByEndPoint, getVideoGames } from '../../Redux/actions/index.js';
 import './Pagination.css';
 
 //* variables para darle dinamismo a la paginación
@@ -32,46 +32,32 @@ function Pagination({defPage,totalPages,pageCurrent,actualEndPoint,getVideoGameB
         if(totalPages > totalBlocks){
             //* Defino el vecino izquierdo
             const startPage = Math.max(2,pageCurrent - pageNeighbords);
-            console.log("el startPage es",startPage);
             //* defino al vecino derecho
             const endPage= Math.min(totalPages - 1,pageCurrent + pageNeighbords);
-            console.log("el endPage es",endPage);
-            console.log("-----------------")
             //* creo un array con limites entre el vecino izquierdo y derecho([startpage,currentpage,endpage])
             let pages = range(startPage,endPage);
-            
             //* ¿Hay paginas ocultas en la izquierda?
             const hasLeftSpill = startPage > 2;
-            console.log("el hasleftspill es", hasLeftSpill);
             //* ¿Hay paginas ocultas en la deracha?
             const hasRightSpill = (totalPages - endPage) > 1;
-            console.log("el hasRightspill es", hasRightSpill);
             //* Numero de paginas a la izquierda o la derecha
             const spillOffset = totalNumbers - (pages.length + 1);
-            console.log("el spillOffset es",spillOffset);
-            console.log("++++++++++++++++++++")
 
             switch (true) {
                 //* (1)<<{4,5}[6]{7,8}(12)
                 case (hasLeftSpill && !hasRightSpill):{
                     //*valores extra si no hay paginas ocultas
                     const extraPages = range(startPage - spillOffset, startPage - 1);
-                    console.log("las extrapages caso 1 son",extraPages);
                     //* concateno todo al array
                     pages = [LEFT_PAGE, ...extraPages, ...pages];
-                    console.log("las nuevas pages caso 1 es",pages);
-                    console.log("*****************")
                     break;
                 }
                 //* (1){4,5}[6]{7,8}>>(12)
                 case (!hasLeftSpill && hasRightSpill): {
                     //*valores extra si no hay paginas ocultas
                     const extraPages = range(endPage + 1, endPage + spillOffset);
-                    console.log("las extrapages caso 2 son ",extraPages);
                     //* concateno todo al array
                     pages = [...pages, ...extraPages, RIGHT_PAGE];
-                    console.log("las nuevas pages caso 2 es",pages);
-                    console.log("*****************");
                     break;
                 }
                 //* (1)<<{4,5}[6]{7,8}>>(12)
@@ -79,8 +65,6 @@ function Pagination({defPage,totalPages,pageCurrent,actualEndPoint,getVideoGameB
                 default:{
                     //* concateno tanto el previus como el next
                     pages = [LEFT_PAGE, ...pages, RIGHT_PAGE]
-                    console.log("la pages del caso dafault ",pages);
-                    console.log("*****************");
                     break;
                 }
             }
@@ -97,7 +81,6 @@ function Pagination({defPage,totalPages,pageCurrent,actualEndPoint,getVideoGameB
     //*evento del previus
     const handleMoveLeft = (value)=>(event) =>{
         event.preventDefault();
-        console.log("la pagina actual es----------",value);
         currentEndPoint = currentEndPoint.replace(/(=)[0-9]+/g,`=${value}`);
         getVideoGameByEndPoint(currentEndPoint);
         //* actualizo el estado de redux
@@ -110,7 +93,6 @@ function Pagination({defPage,totalPages,pageCurrent,actualEndPoint,getVideoGameB
     const handleMoveRight = (value) =>(event)=>{
         event.preventDefault();
         //*actualizo a la nueva pagina
-        console.log("la pagina actual es--------",value);
         currentEndPoint = currentEndPoint.replace(/(=)[0-9]+/g,`=${value}`);
         getVideoGameByEndPoint(currentEndPoint);
         //* actualizo el estado de redux
@@ -184,7 +166,6 @@ const mapDispatchToProps = (dispatch) =>{
         defPage: (currentPage) => dispatch(defPage(currentPage)),
         getVideoGames: (page,name,genre,status) => dispatch(getVideoGames(page,name,genre,status)),
         getVideoGameByEndPoint:(link) => dispatch(getVideoGameByEndPoint(link)),
-        resetPage: (boolean) => dispatch(resetPage(boolean)) 
     }
 }
 

@@ -1,18 +1,9 @@
-/* *box-filter */
-#box-filter{
-    /* border-radius: 40px; */
-    /* background-color: bisque; */
-}
+/* *type-filter */
 #type-filter{
-    /* height: 40px; */
     background-color: #161d2b;
     color: white;
-    /* padding-left: 20px; */
     border-radius: 15px;
     margin-bottom: 10px;
-    /* margin-top: 20px; */
-    /* display: flex;
-    align-items: center; */
 }
 #h3-title{
     background-color: #2E3D59;
@@ -21,7 +12,6 @@
     border-top-right-radius: 15px;
     padding-top: 10px;
     padding-bottom: 10px;
-        ;
 }
 .element{
     

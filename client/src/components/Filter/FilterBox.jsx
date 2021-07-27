@@ -1,32 +1,34 @@
 import React  from 'react'
-import { defGenre,defStatus,getVideoGames,defPage, resetPage, defName } from '../../Redux/actions/index.js';
+import { defGenre,defStatus,getVideoGames,defPage, defName } from '../../Redux/actions/index.js';
 import { connect } from 'react-redux';
 import './FilterBox.css';
 
-function FilterBox({typeOfFilter,defPage,listOfElement,defGenre,defName,defStatus,getVideoGames,genre,status,resetPage}) {
+function FilterBox({typeOfFilter,defPage,listOfElement,defGenre,defName,defStatus,getVideoGames,genre,status}) {
     const handleSelect = (event) =>{
+        //* Capturo el valor en el componente
         const value = event.target.innerText;
+        //* ¿mostrar todos los juegos?
         if(value === "All Games"){
             getVideoGames(1)
             defGenre("");
             defStatus("");
             defPage(1);
             defName("");
-            resetPage(true);
         }else{
+            //* parametros(page,name,genre,status)
+            //* ¿tipo de filtro es por genero?
             if(typeOfFilter === "Genres"){
                 defGenre(value);
                 getVideoGames(1,null,value,null)
                 defPage(1);
-                resetPage(true);
                 defName("");
-            } 
+            }
+            //* ¿tipo de filtro es por juegos? 
             else{
                 defStatus(value);
                 getVideoGames(1,null,null,value)
                 defPage(1);
                 defName("");
-                resetPage(true);
             } 
         }
 
@@ -63,7 +65,6 @@ const mapDispatchToProps = (dispatch) =>{
         defStatus: (value) => dispatch(defStatus(value)),
         defName: (value) => dispatch(defName(value)),
         getVideoGames: (page,name,genre,status) => dispatch(getVideoGames(page,name,genre,status)),
-        resetPage: (boolean) => dispatch(resetPage(boolean)) 
     }
 }
 

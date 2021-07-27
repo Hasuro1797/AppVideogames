@@ -1,6 +1,6 @@
 /* *Backgorund image*/
 #backgroundImage{
-    background-image: url('../../images/background-image.jpg');
+    background-image: url('../../images/background-ldg.jpg');
     height: 657px;
     display: flex;
     flex-direction: column;
@@ -10,14 +10,10 @@
 #backgroundImage img{
     width: 250px;
 }
-/* #backgroundImage:hover{
-    box-shadow: 3px 0px 30px rgba(163,163,163, 1);
-} */
-a{
+
+#container-landing a{
     text-decoration : none;
     color: white;
-    padding-right: 25px;
-    padding-left: 25px;
 }
 
 /* *container landing */
@@ -30,10 +26,26 @@ a{
     justify-content: center;
     align-items: center;
 }
+
+#container-landing h2{
+    margin: 20px;
+    width: 60%;
+    padding: 0px 30px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    font-weight: 300;
+}
+#container-landing b{
+    color: #43D9BD;
+    font-weight: 400;
+}
+
 /**Logo Item */
 #LogoItem{
-    margin:70px;
     width: 264px;
+    margin: 20px
 }
 #LogoItem:hover{
     transform: scale(1.040);
@@ -41,14 +53,16 @@ a{
 
 /* *Btn Home*/
 #BtnToHome{
-    /* margin-left: 150px;  */
-    width: 120px;
+    width: 150px;
+    margin: 20px;
     height: 50px;
     background: transparent;
     border: 3px solid #43D9BD;
     font-family: 'Montserrat', sans-serif ;
     border-radius: 25px; 
     color: white;
+    padding-left: 25px;
+    padding-right: 25px;
     font-weight: 600;
     cursor: pointer;
     transition: .1s ease all;

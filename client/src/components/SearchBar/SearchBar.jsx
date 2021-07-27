@@ -16,7 +16,7 @@ function SearchBar({getVideoGames,defName}) {
         event.preventDefault();
         getVideoGames(1,input);
         defName(input);
-        //setName(input);
+        //* setName(input);
         setInput("");
 
     

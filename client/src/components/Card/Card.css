@@ -2,12 +2,15 @@
 #card{
     margin:25px;
     width: 300px;
-    height: 250px;
+    height: 260px;
     border-radius: 10px;
     background-color: #161d2b;
     color: white;
     cursor: pointer;
 
+}
+a{
+    text-decoration: none;
 }
 #card:hover {
     transform: scale(1.040);
@@ -17,7 +20,6 @@
 #image-container{
     display: flex;
     justify-content: center;
-    /* padding-top: 10px; */
 }
 #background-image{
     width: 300px;
@@ -28,10 +30,12 @@
 
 /* *Name-card */
 #Name-card{
-    width: 300px;
+    width: 90%;
     height: 40px;
-    padding-left: 20px;
-    padding-top: 15px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5px;
+    margin-bottom: 5px;
     display: flex;
     align-items: center;
     font-weight: 900;
@@ -40,10 +44,10 @@
 #genre-rating{
     display: flex;
     align-items: center; 
+
 }
 /* *Genre-card */
 #Genre-card{
-    /* background-color: aqua; */
     width: 80%;
     height: 40px;
     display: flex;

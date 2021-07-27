@@ -1,4 +1,4 @@
-export function validate(input) {
+export function validate(input,cb) {
     let errors = {};
     if (!input.name) {
         errors.name = 'Title of game is required';
@@ -20,10 +20,12 @@ export function validate(input) {
     }
     if (!input.background_image) {
         errors.background_image = 'Image link is required';
-    } else if (!/^(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))$/.test(input.background_image) &&
-        (!/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(input.background_image))
-    ) {
+        cb(false)
+    } else if (!/^(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))$/.test(input.background_image) && (!/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(input.background_image))) {
         errors.background_image = 'The link is invalid';
+        cb(false)
+    } else if(/^(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))$/.test(input.background_image)){
+        cb(true);
     }
     return errors;
 };

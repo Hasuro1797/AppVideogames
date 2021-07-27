@@ -4,13 +4,16 @@
     justify-content: center;
     align-items: baseline;
     padding-bottom: 20px;
-    /* background-color: rgb(0, 0, 0,0.7); */
 }
 #box-pagination h3 {
     color: white;
     margin-right: 30px;;
 }
-
+/* *page-link */
+.page-link{
+    text-decoration: none;
+    color: white;
+}
 /* *pagination */
 #pagination{
     display: flex;
@@ -24,8 +27,6 @@
     margin-right: 8px;
     display: flex;
     justify-content: center;
-    /* padding-left: 9px;
-    padding-right: 5px; */
 }
 /* *page-item-active */
 .page-item-active{

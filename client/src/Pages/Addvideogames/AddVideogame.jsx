@@ -1,5 +1,7 @@
+import './Addvideogame.css';
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux';
+import { validate } from './validate';
 import { addGenre, 
         addPlatform, 
         getGenres, 
@@ -8,13 +10,12 @@ import { addGenre,
         removeAll,
         removeGenre, 
         removePlatform } from '../../Redux/actions';
-import { validate } from './validate';
-import './Addvideogame.css';
 
 function AddVideogame({platforms, getPlatforms, genres,getGenres,selectedPlatforms,addPlatform,removePlatform,selectedGenres,addGenre,removeGenre,removeAll}) {
     
     const [inputPlatform, setInputPlatform] = useState("")
     const [inputGenre, setInputGenre] = useState("")
+    const [image, setImage] = useState(false)
     const [errors, setErrors] = useState({})
     const [input, setInput] = useState({
         name: '',
@@ -27,13 +28,13 @@ function AddVideogame({platforms, getPlatforms, genres,getGenres,selectedPlatfor
     useEffect(() => {
         if(!platforms.length) getPlatforms()
         if(!genres.length) getGenres();
-        // removeAll();
+        removeAll();
     }, [])
     const handleInputChange = (event)=>{
         setErrors(validate({
             ...input,
             [event.target.name] : event.target.value
-        }))
+        },setImage))
         setInput({
             ...input,
             [event.target.name] : event.target.value
@@ -64,26 +65,31 @@ function AddVideogame({platforms, getPlatforms, genres,getGenres,selectedPlatfor
         })
         .then(response => response.json())
         .then(json => {
-            console.log(json);
-            setInput({
-                name: '',
-                description: '',
-                released: '',
-                rating: '',
-                background_image: ''
-            })
-            removeAll()
-            alert("creado con exito")
+            if(json.hasOwnProperty("error1")){
+                alert(`${json.error1}`)
+            }else if(json.hasOwnProperty("error2")){
+                alert(`${json.error2}`)
+            }else if(json.hasOwnProperty("message")){
+                setInput({
+                    name: '',
+                    description: '',
+                    released: '',
+                    rating: '',
+                    background_image: ''
+                })
+                removeAll()
+                alert(`${json.message}`)
+            }
         })
         .catch(error => console.error('Error:', error))
     }
     return (
         <main id = "main">
             <form className= "form-data" onSubmit ={(event)=> handleSubmit(event)}>
-                <h1>Created Video Game</h1>
+                <h1>Add a Video Game</h1>
                 <div id="box1-principal">
                     <div id = "column1-box">
-                        <label htmlFor = "title">Name of Game(max 60 characters)<span>*</span></label>
+                        <label htmlFor = "title">Title(max 60 characters)<span>*</span></label>
                         <input
                             className = "title-option"
                             autoComplete = "off"
@@ -145,7 +151,7 @@ function AddVideogame({platforms, getPlatforms, genres,getGenres,selectedPlatfor
                         {errors.released &&
                             (<p>{errors.released}</p>
                         )}
-                        <label htmlFor = "bg-img">Background Video Game<span>*</span></label>
+                        <label htmlFor = "bg-img">Video game cover<span>*</span></label>
                         <input
                             className = "bg-option"
                             type = "text"
@@ -162,7 +168,7 @@ function AddVideogame({platforms, getPlatforms, genres,getGenres,selectedPlatfor
                     </div>
                     <div id = "img-prensentation">
                         {
-                            input.background_image && <img id = "asdasd" src={input.background_image} alt="present videogame"/> 
+                            (input.background_image && image) && <img id = "asdasd" src={input.background_image} alt="present videogame"/> 
                         }
                     </div>
                     <div className = "box-selected">
@@ -182,8 +188,8 @@ function AddVideogame({platforms, getPlatforms, genres,getGenres,selectedPlatfor
                                 selectedGenres.map(element =>{
                                     var genreFind = genres.find(value => value.id === element);
                                     return(
-                                        <div className="item">
-                                            <p key ={genreFind.id}>{genreFind.name}</p>
+                                        <div className="item" key ={genreFind.id}>
+                                            <p>{genreFind.name}</p>
                                             <button type ="button" onClick ={() => removeGenre(genreFind.id)}>x</button>
                                         </div>
                                     )
@@ -208,8 +214,8 @@ function AddVideogame({platforms, getPlatforms, genres,getGenres,selectedPlatfor
                                 selectedPlatforms.map(element =>{
                                     var platformFind = platforms.find(value => value.id === element);
                                     return(
-                                        <div className="item">
-                                            <p key ={platformFind.id}>{platformFind.name}</p>
+                                        <div className="item" key ={platformFind.id}>
+                                            <p>{platformFind.name}</p>
                                             <button type = "button" onClick ={() => removePlatform(platformFind.id)}>x</button>
                                         </div>
                                     )

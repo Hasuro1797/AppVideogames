@@ -46,6 +46,9 @@
 #box-info{
     width: 50%;
     padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 #box-info p{
     padding-left: 20px;

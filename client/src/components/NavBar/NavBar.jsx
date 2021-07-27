@@ -1,5 +1,5 @@
 import React from 'react'
-import {NavLink, Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Logo from '../../images/logo-navBar.png';
 import './NavBar.css';
 function NavBar() {
@@ -11,11 +11,11 @@ function NavBar() {
                 </Link>
             </div>
             <ul id ='MenuItems'>
-                <Link exact to = '/home' ClassName='active'>
+                <Link exact to = '/home' ClassName = "active">
                     <li>Home</li>
                 </Link>
                 <Link to ='/home/addvideogame' ClassName='active'>
-                    <li>Create</li>
+                    <li>Add</li>
                 </Link>
             </ul>
         </nav>
