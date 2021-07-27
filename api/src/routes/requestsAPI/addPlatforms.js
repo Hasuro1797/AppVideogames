@@ -4,17 +4,17 @@ const fetch = require('node-fetch');
 const { Platform } = require('../../db.js');
 
 const addPlatforms = function(){
-    // Agregamos los generos desde una API a la base de datos
+    //* Agregamos los generos desde una API a la base de datos
     Platform.findAndCountAll()
     .then(results =>{
         if(results.count === 0){
             fetch(`https://api.rawg.io/api/platforms/lists/parents?key=${API_KEY}`)
             .then(data => data.json())
             .then(platforms =>{
-                // Recorremos el array de plataformas existentes en la API
+                //* Recorremos el array de plataformas existentes en la API
                 platforms.results.forEach(typeOfPlatform => {
                     typeOfPlatform.platforms.forEach(element => {
-                        // Creamos las plataformas
+                        //* Creamos las plataformas
                         Platform.create({
                             id:element.id,
                             name: element.name
@@ -22,13 +22,13 @@ const addPlatforms = function(){
                     })
                 });
             })
-            // posr si ocurre algun error en el proceso
+            //* posr si ocurre algun error en el proceso
             .catch((error) => console.error(error))
         }else{
-            console.log("Platforms were added.")
+            console.log("Platforms added: ",results.count)
         }
     })
-    // Si exsite un error en el proceso
+    //* Si exsite un error en el proceso
     .catch(error => console.error(error));
 }
 

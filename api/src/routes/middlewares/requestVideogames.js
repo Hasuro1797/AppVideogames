@@ -19,7 +19,7 @@ const requestVideogame = async(req,res,next)=> {
             distinct: true,
             offset:(page - 1) * limit, 
             limit: limit,
-            attributes: ['id','name', 'background_image', 'rating'],
+            attributes: ['id','name', 'background_image','rating'],
             include : {
                 model: Genre,
             },
