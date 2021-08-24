@@ -12,26 +12,27 @@ import Spinner from '../../Components/Spinner/Spinner';
 
 function Home({genres, videoGames, getGenres, getVideoGames}) {
     const listVideoGames = [{id:1,name:"All Games"},{id:2,name:"Created"},{id:3,name:"On platform"}]
-    const [loading, setloading] = useState(true)
+    const [loading, setloading] = useState(true);
+    const [showMenu, setShowMenu] = useState(false);
     useEffect(() => {
-        if(!genres.length)getGenres()
-        if(!videoGames.length)getVideoGames(1)
+        getGenres()
+        getVideoGames(1)
         setloading(false);
-    }, [])
+    }, [getGenres,getVideoGames])
     
-    return (
+    return ( 
         <>
             {
                 loading ? <div className = "box-spinner"> <Spinner/> </div> 
                 :
                     <div id='Home'>
-                        <div id ='table-filter'>
-                            <FilterBox typeOfFilter = "Videogames" listOfElement={listVideoGames}/>
-                            <FilterBox typeOfFilter = "Genres" listOfElement={genres}/>
+                        <div className ={showMenu? 'table-filter-active':'table-filter'}>
+                            <FilterBox typeOfFilter = "Videogames" listOfElement={listVideoGames} setShowMenu={setShowMenu}/>
+                            <FilterBox typeOfFilter = "Genres" listOfElement={genres} setShowMenu={setShowMenu}/>
                         </div>
                         <div id ='main-container'>
-                            <OrderBy/>
-                            <div>
+                            <OrderBy showMenu={showMenu} setShowMenu={setShowMenu}/>
+                            <div id="pagination-listgames">
                                 <Pagination/>
                                 <div id='list-of-videogames'>   
                                     <Cards videogames = {videoGames} loading={loading}/>

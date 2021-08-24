@@ -29,7 +29,7 @@ function AddVideogame({platforms, getPlatforms, genres,getGenres,selectedPlatfor
         if(!platforms.length) getPlatforms()
         if(!genres.length) getGenres();
         removeAll();
-    }, [])
+    }, [genres.length,platforms.length,getGenres,getPlatforms,removeAll])
     const handleInputChange = (event)=>{
         setErrors(validate({
             ...input,
@@ -175,7 +175,7 @@ function AddVideogame({platforms, getPlatforms, genres,getGenres,selectedPlatfor
                         <div className ="container-label-select">
                             <label >Genres<span>*</span></label>
                             <select value = {inputGenre}  onChange = {(e) => handleGenreSelect(e.target.value)}>
-                                <option hidden selected >Genre</option>
+                                <option hidden value >Genre</option>
                                     {
                                         genres.map(element => 
                                             <option key ={element.id} value = {element.id}>{element.name}</option>
@@ -201,7 +201,7 @@ function AddVideogame({platforms, getPlatforms, genres,getGenres,selectedPlatfor
                         <div className = "container-label-select">           
                             <label>Platforms<span>*</span></label>
                             <select value = {inputPlatform} onChange = {(e) => handlePlatformSelect(e.target.value)}>
-                                <option hidden selected >Platform</option>
+                                <option hidden value >Platform</option>
                                     {
                                         platforms.map(element => 
                                             <option key ={element.id} value = {element.id}>{element.name}</option>

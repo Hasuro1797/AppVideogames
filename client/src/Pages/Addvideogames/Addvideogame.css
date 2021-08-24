@@ -12,6 +12,13 @@
     width: 45%;
     border-radius: 20px;
 }
+@media only screen and (max-width:900px) {
+    .form-data{
+        background-color: #161d2b;
+        width: 95%;
+        border-radius: 20px;
+    }
+}
 .form-data h1{
     text-align: center;
     padding: 40px 0px;

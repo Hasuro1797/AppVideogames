@@ -3,14 +3,50 @@
     display: flex;
 }
 /* *Table of filter */
-#table-filter{
+.table-filter{
     width: 20%;
     margin-top: 14px;
     margin-left: 15px;
+
+    
 }
+@media only screen and (max-width:900px){
+    .table-filter{
+        position: absolute;
+        background-color: #0b0f1a;
+        padding: 10px;
+        width: 250px;
+        top: 200px;
+        left: -260px;
+        transition: 1s ease all;
+    }
+    .table-filter-active{
+        position: absolute;
+        background-color: #0b0f1a;
+        padding: 10px;
+        width: 250px;
+        top: 200px;
+        left: 0;
+        transition: 1s ease all;
+    }
+    
+}
+
 /* *main-container */
 #main-container{
+    /* background-color: lightblue; */
     width: 80%;
+}
+@media only screen and (max-width:900px){
+    #main-container{
+        width: 100%;
+    }
+}
+
+#pagination-listgames{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 /* *Title of filter */
 #title-filter{
@@ -31,6 +67,13 @@
     display: flex;
     flex-flow: row wrap;
 }
+@media only screen and (max-width:900px){
+    #list-of-videogames{
+        justify-content: center;
+    }
+}
+
+
 /* *box-spinner*/
 .box-spinner{
     background-color: rgba(3, 3, 3,0.7);

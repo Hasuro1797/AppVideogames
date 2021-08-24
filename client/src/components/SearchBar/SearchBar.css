@@ -3,20 +3,20 @@
     display: flex;
     justify-content: center;;
     align-items: center;
-    background-color: #43D9BD;
     width: 60%;
     height: 50px;
-    border-bottom-left-radius: 25px;
-    border-top-left-radius: 25px;
     
 }
-/* *Title*/
-#Title{
-    margin-right: 10px;
-    font-weight: 600;
-    font-size: 20px;
-    cursor: pointer;
+@media only screen and (max-width:900px){
+    #SearchName{
+        margin-left: 0;
+        width: 80%;
+        /* background-color: lightcoral; */
+        border-radius: 25px;
+        margin-right: 10px;
+    }
 }
+
 /* *Button*/
 #buttonSearch{
     display: flex;
@@ -30,6 +30,7 @@
     border: none;
     cursor: pointer;
 }
+
 #buttonSearch:hover{
     background-color: #161d2b;
 }
@@ -39,11 +40,16 @@
 /* *Input navBar */
 .inputNavBar{
     height: 35px;
-    width: 300px;
-    font-size: 17px;
+    width: 75%;
+    font-size: 1rem;
     padding-left: 15px;
     border: none;
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
     font-family: 'Raleway', sans-serif;
+}
+@media only screen and (max-width:900px){
+    #SearchName{
+        width: 100%;
+    }
 }

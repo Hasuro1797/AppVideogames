@@ -3,8 +3,19 @@ import { defGenre,defStatus,getVideoGames,defPage, defName } from '../../Redux/a
 import { connect } from 'react-redux';
 import './FilterBox.css';
 
-function FilterBox({typeOfFilter,defPage,listOfElement,defGenre,defName,defStatus,getVideoGames,genre,status}) {
-    const handleSelect = (event) =>{
+function FilterBox({
+    typeOfFilter,
+    defPage,
+    listOfElement,
+    defGenre,
+    defName,
+    defStatus,
+    getVideoGames,
+    genre,
+    status,
+    setShowMenu
+}) {
+    const handleSelect = async (event) =>{
         //* Capturo el valor en el componente
         const value = event.target.innerText;
         //* ¿mostrar todos los juegos?
@@ -12,7 +23,8 @@ function FilterBox({typeOfFilter,defPage,listOfElement,defGenre,defName,defStatu
             getVideoGames(1)
             defGenre("");
             defStatus("");
-            defPage(1);
+            await defPage(1);
+            setShowMenu(false)
             defName("");
         }else{
             //* parametros(page,name,genre,status)
@@ -20,14 +32,17 @@ function FilterBox({typeOfFilter,defPage,listOfElement,defGenre,defName,defStatu
             if(typeOfFilter === "Genres"){
                 defGenre(value);
                 getVideoGames(1,null,value,null)
-                defPage(1);
+                await defPage(1);
+                setShowMenu(false)
                 defName("");
+
             }
             //* ¿tipo de filtro es por juegos? 
             else{
                 defStatus(value);
                 getVideoGames(1,null,null,value)
-                defPage(1);
+                await defPage(1);
+                setShowMenu(false)
                 defName("");
             } 
         }

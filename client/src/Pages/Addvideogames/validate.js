@@ -21,7 +21,7 @@ export function validate(input,cb) {
     if (!input.background_image) {
         errors.background_image = 'Image link is required';
         cb(false)
-    } else if (!/^(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))$/.test(input.background_image) && (!/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/.test(input.background_image))) {
+    } else if (!/^(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))$/.test(input.background_image) && (!/^https?:\/\/[\w]+(\.[\w]+)+[/#?]?.*$/.test(input.background_image))) {
         errors.background_image = 'The link is invalid';
         cb(false)
     } else if(/^(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))$/.test(input.background_image)){

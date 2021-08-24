@@ -5,7 +5,7 @@ import { defName, getVideoGames } from '../../Redux/actions/index.js';
 import { connect } from "react-redux";
 import './SearchBar.css'
 
-function SearchBar({getVideoGames,defName}) {
+function SearchBar({getVideoGames, defName}) {
     const [input, setInput] = useState("");
 
     const handleChange = (event) =>{

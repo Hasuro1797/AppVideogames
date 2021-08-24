@@ -12,7 +12,7 @@ function Videogame(props) {
         let gameId = props.match.params.id;
         if(typeof parseInt(gameId) === "number") props.getVideoGame(gameId);
         setloading(false);
-    }, [])
+    }, [props])
     
     return (
         <>
@@ -21,7 +21,7 @@ function Videogame(props) {
                 :
                 <>
                     {props.videoGame.hasOwnProperty("genres")?
-                    <div id="image-detail" style={{ backgroundImage: `url(${props.videoGame.background_image})`}}>
+                    <div id="image-detail" style={{ backgroundImage: `url(${props.videoGame.background_image})`, objectFit: 'cover' }}>
                         <div id = "container-global">
                             <div id = "container-details">
                                 <div id="background-box">

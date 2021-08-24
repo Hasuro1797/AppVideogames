@@ -6,15 +6,15 @@ function NavBar() {
     return (
         <nav id = 'Navigation'>
             <div id='LogoNavBar'>
-                <Link exact to = '/' >
+                <Link  to = '/' >
                     <img src={Logo} alt="logo_image" />
                 </Link>
             </div>
             <ul id ='MenuItems'>
-                <Link exact to = '/home' ClassName = "active">
+                <Link  to = '/home' >
                     <li>Home</li>
                 </Link>
-                <Link to ='/home/addvideogame' ClassName='active'>
+                <Link to ='/home/addvideogame'> 
                     <li>Add</li>
                 </Link>
             </ul>

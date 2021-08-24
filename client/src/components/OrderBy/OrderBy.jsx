@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux';
 import { getVideoGamesByOrder, getVideoGames } from '../../Redux/actions';
-import SearchBar from '../SearchBar/SearchBar'
+import SearchBar from '../SearchBar/SearchBar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import './OrderBy.css';
 
-const OrderBy = ({getVideoGamesByOrder, getVideoGames, genre,status,name,page}) => {
+const OrderBy = ({getVideoGamesByOrder, getVideoGames, genre,status,name,page,showMenu,setShowMenu}) => {
+    
     //* estado del order
     const [order, setOrder] = useState("")
     //* array de los tipos de order
@@ -60,10 +63,23 @@ const OrderBy = ({getVideoGamesByOrder, getVideoGames, genre,status,name,page}) 
 
     return (
         <div id = "OptionSearch" >
-            <SearchBar/>
+            <div className="searchOptions">
+                {
+                    showMenu ?
+                    <div className="hamburger">
+                        <FontAwesomeIcon id ="hamburgerIcon" icon={faTimes} onClick={()=> setShowMenu(!showMenu)}/>
+                    </div>
+                    :
+                    <div className="hamburger">
+                        <FontAwesomeIcon id ="hamburgerIcon" icon={faBars} onClick={()=> setShowMenu(!showMenu)}/>
+                    </div>
+                }
+                
+                <SearchBar />
+            </div>
             <div id= 'electionsOfOrder'>
                 <select className='select-order' value ={order} onChange={(event)=>handleSearch(event.target.value)}>
-                    <option hidden selected >Order By</option>
+                    <option hidden value >Order By</option>
                     {orderBy.map(orden =>
                         (<option className = "option-select" key={orden} value={orden}>{orden}</option>))
                     }

@@ -1,13 +1,14 @@
 /* *Imagen-detail*/
 #image-detail{
-    /* background-repeat: no-repeat; */
     background-attachment: fixed;
-    height: 750px;
+    /* height: 750px; */
 }
+
 /* *Container global*/
 #container-global{
     background-color: rgba(11, 15, 26,0.7);
-    height: 750px;
+    padding-bottom: 10px;
+    /* height: 750px; */
 }
 
 /* *title-of-game*/
@@ -19,29 +20,66 @@
     padding-left: 20px;
     /* background-color: aqua; */
 }
+@media only screen and (max-width:970px) {
+    #title-of-game{
+        padding-top: 10px;
+        font-size: 15px;
+    }
+}
 /* *container-details */
 #container-details{
     width: 100%;
     height: 100%;
     display: flex;
+    align-items: center;
+}
+@media only screen and (max-width:970px) {
+    #container-details{
+        flex-direction: column;
+    }
+}
+@media only screen and (min-height:970px) {
+    #container-details{
+        flex-direction: column;
+    }
 }
 /* *background-box*/
 #background-box{
-    /* background-color: aqua; */
     width: 50%;
     height: 100%;
     display: flex;
-    /* background-color: rgb(230, 220, 245); */
     justify-content: center;
     align-items: center;
 }
+@media only screen and (max-width:970px) {
+    #background-box{
+        margin-top: 15px;
+        width: 100%;
+        height: 80%;
+    }
+}
+@media only screen and (min-height:970px) {
+    #background-box{
+        margin-top: 15px;
+        width: 100%;
+        height: 80%;
+    }
+}
 /* *Bg-image */
 #bg-image{
+    object-fit: cover;
     width: 95%;
     max-height: 600px;
     border-radius: 5px;
-    box-shadow: 3px 0px 10px rgba(163,163,163, 1);;
+    box-shadow: 3px 0px 10px rgba(163,163,163, 1);
 }
+@media only screen and (max-width:970px) {
+    #bg-image{
+        width: 100%;
+        height: 380px;
+    }
+}
+
 /* *Box-info */
 #box-info{
     width: 50%;
@@ -53,6 +91,17 @@
 #box-info p{
     padding-left: 20px;
 }
+@media only screen and (max-width:970px) {
+    #box-info{
+        width: 100%;
+    }
+}
+@media only screen and (min-height:970px) {
+    #box-info{
+        width: 100%;
+    }
+}
+
 /* *descriptionl*/
 #description{
     /* background-color: blueviolet; */
