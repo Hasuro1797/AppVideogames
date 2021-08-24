@@ -16,9 +16,9 @@ function Home({genres, videoGames, getGenres, getVideoGames}) {
     const [showMenu, setShowMenu] = useState(false);
     useEffect(() => {
         getGenres()
-        getVideoGames(1)
+        if(!videoGames.length)getVideoGames(1)
         setloading(false);
-    }, [getGenres,getVideoGames])
+    }, [getGenres,getVideoGames,videoGames])
     
     return ( 
         <>
