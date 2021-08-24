@@ -19,7 +19,7 @@ const requestVideogame = async(req,res,next)=> {
             distinct: true,
             offset:(page - 1) * limit, 
             limit: limit,
-            attributes: ['id','name', 'background_image','rating'],
+            attributes: ['id','name', 'background_image','released','rating'],
             include : {
                 model: Genre,
             },
@@ -48,7 +48,7 @@ const requestVideogame = async(req,res,next)=> {
             distinct: true,
             offset:(page - 1) * limit, 
             limit: limit,
-            attributes: ['id','name', 'background_image', 'rating'],
+            attributes: ['id','name', 'background_image','released', 'rating'],
             include :{
                 model:Genre,
             },
@@ -75,7 +75,7 @@ const requestVideogame = async(req,res,next)=> {
         Videogame.findAndCountAll({
             offset:(page - 1) * limit, 
             limit: limit,
-            attributes: ['id','name', 'background_image', 'rating'],
+            attributes: ['id','name', 'background_image','released', 'rating'],
             include:{
                 model: Genre,
                 where:{
@@ -101,7 +101,7 @@ const requestVideogame = async(req,res,next)=> {
         Videogame.findAndCountAll({
             offset:(page - 1) * limit, 
             limit: limit,
-            attributes: ['id','name', 'background_image', 'rating'],
+            attributes: ['id','name', 'background_image','released', 'rating'],
             include:{
                 model: Genre,
                 where:{
@@ -127,7 +127,7 @@ const requestVideogame = async(req,res,next)=> {
             distinct: true,
             offset:(page - 1) * limit, 
             limit:limit,
-            attributes: ['id','name', 'background_image', 'rating'],
+            attributes: ['id','name', 'background_image','released', 'rating'],
             include :Genre,
             where:{
                 status: {
@@ -151,7 +151,7 @@ const requestVideogame = async(req,res,next)=> {
             distinct:true,
             offset:(page - 1) * limit, 
             limit: limit,
-            attributes: ['id','name', 'background_image', 'rating'],
+            attributes: ['id','name', 'background_image','released', 'rating'],
             include :Genre,
             where:{
                 status: {
@@ -174,7 +174,7 @@ const requestVideogame = async(req,res,next)=> {
             distinct: true,
             offset:(page - 1) * limit, 
             limit: limit,
-            attributes: ['id','name', 'background_image', 'rating'],
+            attributes: ['id','name', 'background_image','released', 'rating'],
             include :Genre,
             order:[[order,way]]
         })
@@ -192,7 +192,7 @@ const requestVideogame = async(req,res,next)=> {
             distinct: true,
             offset:(page - 1) * limit, 
             limit: limit,
-            attributes: ['id','name', 'background_image', 'rating'],
+            attributes: ['id','name', 'background_image','released', 'rating'],
             include :Genre,
         })
         .then(result => res.send({

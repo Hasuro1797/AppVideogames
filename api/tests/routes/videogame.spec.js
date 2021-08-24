@@ -42,7 +42,8 @@ const body = {
       name: 'game1',
       background_image: 'https://i.blogs.es/4185d3/godofwar2/1366_2000.jpg',
       rating: 3.2,
-      genres: []
+      genres: [],
+      released: "2012-06-29"
     }
   ],
   actualEndPoint: 'http://localhost:3001/videogames?page=1'
