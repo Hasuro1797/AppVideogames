@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import {connect} from 'react-redux';
 import { getVideoGameDetail } from '../../Redux/actions/index.js';
@@ -12,7 +13,7 @@ function Videogame(props) {
         let gameId = props.match.params.id;
         if(typeof parseInt(gameId) === "number") props.getVideoGame(gameId);
         setloading(false);
-    }, [props])
+    }, [])
     
     return (
         <>
