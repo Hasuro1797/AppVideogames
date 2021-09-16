@@ -8,6 +8,42 @@
   <img height="200" src="./videogame.png" />
 </p>
 
+<table>
+  <tr>
+    <td>Landing Page</td>
+    <td>Home Page</td>
+  </tr>
+  <tr>
+    <td><img height="200" src="https://github.com/Hasuro1797/Hasuro1797/blob/main/PI-images/landing-images.JPG" /></td>
+    <td><img height="200" src="https://github.com/Hasuro1797/Hasuro1797/blob/main/PI-images/home.JPG" /></td>
+  </tr>
+  <tr>
+    <td>Detail Page</td>
+    <td>Form Page</td>
+  </tr>
+  <tr>
+    <td><img height="200" src="https://github.com/Hasuro1797/Hasuro1797/blob/main/PI-images/detailvideogame.JPG" /></td>
+    <td><img height="200" src="https://github.com/Hasuro1797/Hasuro1797/blob/main/PI-images/addgame1.JPG" /></td>
+  </tr>
+  <tr>
+    <td>Landing Page Movil</td>
+     <td>Home Movil</td>
+  </tr>
+  <tr>
+     <td><p align="center"><img left height="200" src="https://github.com/Hasuro1797/Hasuro1797/blob/main/PI-images/landing-responsive.JPG" /></p></td>
+     <td><p align="center"><img height="200" src="https://github.com/Hasuro1797/Hasuro1797/blob/main/PI-images/home-responsive.JPG" /></p></td>
+  </tr>
+  <tr>
+    <td>Detail Movil</td>
+     <td>Form Movil</td>
+  </tr>
+  <tr>
+     <td><p align="center"><img height="200" src="https://github.com/Hasuro1797/Hasuro1797/blob/main/PI-images/details-responsive.JPG" /></p></td>
+     <td><p align="center"><img height="200" src="https://github.com/Hasuro1797/Hasuro1797/blob/main/PI-images/form-responsive.JPG" /></p></td>
+  </tr>
+  </table>
+
+
 ## Objetivos del Proyecto
 
 - Construir una App utlizando React, Redux, Node y Sequelize.
@@ -16,9 +52,6 @@
 - Aprender y practicar el workflow de GIT.
 - Usar y practicar testing.
 
-## Horarios y Fechas
-
-El proyecto tendrá una duración máxima de tres semanas. En el caso de que completan todas las tareas antes de dicho lapso podrán avisar a su Instructor para coordinar una fecha de presentación del trabajo (DEMO).
 
 ## Comenzando
 
